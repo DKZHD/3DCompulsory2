@@ -1,7 +1,5 @@
 #include "Backend.h"
 
-
-
 void Backend::initialize()
 {
     window = Window::initWindow();
