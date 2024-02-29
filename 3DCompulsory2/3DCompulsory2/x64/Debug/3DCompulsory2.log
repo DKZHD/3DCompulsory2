@@ -1,11 +1,1 @@
-﻿  Backend.cpp
-D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\Backend\Backend.cpp(20,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  Input.cpp
-D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\InputEvents\Input.cpp(57,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\InputEvents\Input.cpp(58,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  Window.cpp
-D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\Window\Window.cpp(26,26): warning C4244: 'argument': conversion from 'float' to 'GLsizei', possible loss of data
-D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\Window\Window.cpp(26,20): warning C4244: 'argument': conversion from 'float' to 'GLsizei', possible loss of data
-  Generating Code...
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-  3DCompulsory2.vcxproj -> D:\3DProgramming\3DCompulsory2\3DCompulsory2\x64\Debug\3DCompulsory2.exe
+﻿  3DCompulsory2.vcxproj -> C:\Skole\3D-Programmering\Github\3DCompulsory2\3DCompulsory2\x64\Debug\3DCompulsory2.exe

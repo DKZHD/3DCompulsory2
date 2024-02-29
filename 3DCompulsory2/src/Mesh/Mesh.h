@@ -25,27 +25,25 @@ public:
 
 };
 
-struct triangle
+struct Cube : public Mesh
 {
-	float a{1.0f};
-	std::vector<Vertex> tVertices;
-	std::vector<GLuint> tIndices;
-	void CreateTriangle(float size);
-};
+private:
+	int index = 0;
+	glm::vec3 Position;
+	unsigned int Program;
+	glm::vec3 scale;
 
-struct Square
-{
+public:
+	Cube(float x, float y, float z, glm::vec3 scale, const unsigned int& program)
+		: Position(x, y, z), Program(program), scale(scale)
+	{
+	}
+	void Draw();
+	void TranslateDraw(float x, float y, float z, bool should_stop = false);
+	glm::vec3& GetPosition() { return Position; }
+	glm::vec3& GetScale() { return scale; }
+	int& GetIndex() { return index; }
 	float a{1.0f};
-	std::vector<Vertex> sVertices;
-	std::vector<GLuint> sIndices;
-	void CreateSquare(float size);
-};
-
-struct Cube
-{
-	float a{1.0f};
-	std::vector<Vertex> cVertices;
-	std::vector<GLuint> cIndices;
 	void CreateCube(float size);
 };
 
