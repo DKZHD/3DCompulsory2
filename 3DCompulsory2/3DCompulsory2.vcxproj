@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Collision\Collision.cpp" />
     <ClCompile Include="src\FrontEnd\FrontEnd.cpp" />
     <ClCompile Include="src\Buffers\Buffer.cpp" />
     <ClCompile Include="Dependencies\glm\detail\glm.cpp" />
@@ -286,6 +287,7 @@
     <Library Include="Dependencies\glfw3.lib" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Collision\Collision.h" />
     <ClInclude Include="src\FrontEnd\FrontEnd.h" />
     <ClInclude Include="src\Buffers\Buffer.h" />
     <ClInclude Include="Dependencies\glad\glad.h" />
