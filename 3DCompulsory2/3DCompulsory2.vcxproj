@@ -132,7 +132,10 @@
   <ItemGroup>
     <ClCompile Include="Dependencies\glm\detail\glm.cpp" />
     <ClCompile Include="glad.c" />
+<<<<<<< Updated upstream
     <ClCompile Include="src\Shaders\Shader.cpp" />
+=======
+>>>>>>> Stashed changes
     <ClCompile Include="src\Backend\Backend.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Window\Window.cpp" />
