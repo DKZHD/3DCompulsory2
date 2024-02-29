@@ -1,12 +1,10 @@
 #include "Backend.h"
 
-#include <immintrin.h>
-
-#include "GLFW/glfw3.h"
-
 void Backend::initialize(Window* initPtr)
 {
+    glfwInit();
     WindowInit = initPtr;
+    WindowInit->initWindow();
 }
 
 void Backend::run()
@@ -20,4 +18,5 @@ void Backend::run()
         float DeltaTime = CurrentFrame - FirstFrame;
         FirstFrame = CurrentFrame;
     }
+    glfwTerminate();
 }
