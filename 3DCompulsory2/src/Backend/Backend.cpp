@@ -13,6 +13,7 @@ void Backend::initialize()
 
 void Backend::run()
 {
+    initialize();
     float FirstFrame = 0.0f;
     
     while(!glfwWindowShouldClose(window))
@@ -21,12 +22,17 @@ void Backend::run()
     	DeltaTime = CurrentFrame - FirstFrame;
         FirstFrame = CurrentFrame;
 
-
         KeyBoardInput::processInput(window);
         glUniformMatrix4fv(camera.viewLoc, 1, GL_FALSE, glm::value_ptr(camera.getView()));
         glUniformMatrix4fv(camera.projectionLoc, 1, GL_FALSE, glm::value_ptr(camera.getProjection(800, 600)));
+        Update(DeltaTime);
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
     glfwTerminate();
+}
+
+void Backend::Update(float deltaTime)
+{
+
 }

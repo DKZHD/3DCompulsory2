@@ -130,10 +130,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\FrontEnd\FrontEnd.cpp" />
     <ClCompile Include="src\Buffers\Buffer.cpp" />
     <ClCompile Include="Dependencies\glm\detail\glm.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="src\Camera\Camera.cpp" />
+    <ClCompile Include="src\FrontEnd\Scene.cpp" />
     <ClCompile Include="src\InputEvents\Input.cpp" />
     <ClCompile Include="src\Backend\Backend.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -284,6 +286,7 @@
     <Library Include="Dependencies\glfw3.lib" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\FrontEnd\FrontEnd.h" />
     <ClInclude Include="src\Buffers\Buffer.h" />
     <ClInclude Include="Dependencies\glad\glad.h" />
     <ClInclude Include="Dependencies\GLFW\glfw3.h" />
@@ -572,6 +575,8 @@
     <ClInclude Include="Dependencies\glm\vector_relational.hpp" />
     <ClInclude Include="Dependencies\KHR\khrplatform.h" />
     <ClInclude Include="src\Camera\Camera.h" />
+    <ClInclude Include="src\Color.h" />
+    <ClInclude Include="src\FrontEnd\Scene.h" />
     <ClInclude Include="src\InputEvents\Input.h" />
     <ClInclude Include="src\Backend\Backend.h" />
     <ClInclude Include="src\Mesh\Mesh.h" />

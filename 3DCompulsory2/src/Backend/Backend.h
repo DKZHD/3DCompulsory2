@@ -11,7 +11,8 @@ public:
     static Camera camera;
     static float DeltaTime;
     
-    void initialize();
+    virtual void initialize();
     void run();
+    virtual void Update(float deltaTime);
     
 };

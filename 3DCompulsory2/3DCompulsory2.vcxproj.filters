@@ -45,6 +45,12 @@
     <ClCompile Include="src\Buffers\Buffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\FrontEnd\FrontEnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FrontEnd\Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Dependencies\glfw3.dll" />
@@ -1338,6 +1344,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Buffers\Buffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Color.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FrontEnd\FrontEnd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FrontEnd\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
