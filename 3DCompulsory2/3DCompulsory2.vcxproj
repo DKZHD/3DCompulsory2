@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClCompile Include="Dependencies\glm\detail\glm.cpp" />
     <ClCompile Include="glad.c" />
+    <ClCompile Include="src\Shaders\Shader.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Window\Window.cpp" />
   </ItemGroup>
@@ -142,6 +143,7 @@
     <Library Include="Dependencies\glfw3.lib" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
     <ClInclude Include="Dependencies\glad\glad.h" />
     <ClInclude Include="Dependencies\GLFW\glfw3.h" />
     <ClInclude Include="Dependencies\GLFW\glfw3native.h" />
@@ -570,6 +572,9 @@
     <Content Include="Dependencies\glfw3dll.lib" />
     <Content Include="Dependencies\glfw3_mt.lib" />
     <Content Include="Dependencies\glm\CMakeLists.txt" />
+=======
+    <ClInclude Include="src\Shaders\Shader.h" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -21,10 +21,14 @@
     <ClCompile Include="glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< Updated upstream
     <ClCompile Include="Dependencies\glm\detail\glm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Mesh\Mesh.cpp">
+=======
+    <ClCompile Include="src\Shaders\Shader.cpp">
+>>>>>>> Stashed changes
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -443,6 +447,7 @@
     <Library Include="Dependencies\glfw3.lib" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
     <ClInclude Include="Dependencies\glad\glad.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -1302,6 +1307,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Mesh\Mesh.h">
+=======
+    <ClInclude Include="src\Shaders\Shader.h">
+>>>>>>> Stashed changes
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
