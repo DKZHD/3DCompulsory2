@@ -1,3 +1,4 @@
+#include "../Shaders/Shader.h"
 #include "Window.h"
 
 
@@ -21,6 +22,8 @@ void Window::initWindow()
         std::cout << "Failed to initialize GLAD" << std::endl;
     }
     glViewport(0,0,width,height);
+    glEnable(GL_DEPTH_TEST);
+    Shader::CreateProgram();
     glfwSetFramebufferSizeCallback(window,framebuffer_size_callback);
 }
 

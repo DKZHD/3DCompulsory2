@@ -8,10 +8,10 @@ struct ShaderSource
 	std::string FragSource;
 };
 
-class Shader
+
+namespace Shader
 {
-public:
-	static GLuint Program;
+	extern GLuint Program;
 	ShaderSource ReadShaderFromFile(const char* filepathVert, const char* filepathFrag);
 	void CreateProgram();
 };

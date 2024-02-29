@@ -1,5 +1,4 @@
 #include "Shader.h"
-
 #include <sstream>
 #include <fstream>
 
@@ -21,7 +20,7 @@ ShaderSource Shader::ReadShaderFromFile(const char* filepathVert, const char* fi
 	}
 	return {};
 }
-
+GLuint Shader::Program;
 void Shader::CreateProgram()
 {
 	ShaderSource source = ReadShaderFromFile("Shaders/VertexShader.vert", "Shaders/FragmentShader.frag");
