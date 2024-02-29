@@ -5,9 +5,9 @@
 class Backend
 {
 public:
-    Window *WindowInit;
+    GLFWwindow *window;
     
-    void initialize(Window* initPtr);
+    void initialize();
     void run();
     
 };

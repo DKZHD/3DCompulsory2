@@ -5,11 +5,10 @@
 class Window
 {
 public:
-    GLFWwindow* window;
 
-    float height;
-    float width;
+    float height = 600;
+    float width = 800;
     
-    void initWindow();
-    static void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+    static GLFWwindow* initWindow();
+
 };

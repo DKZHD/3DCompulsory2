@@ -3,9 +3,8 @@
 
 int main()
 {
-    Window window;
     Backend backend;
-    backend.initialize(&window);
+    backend.initialize();
     backend.run();
     return 0;
 }

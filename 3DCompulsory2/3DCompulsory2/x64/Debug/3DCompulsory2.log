@@ -1,9 +1,7 @@
-﻿  Shader.cpp
+﻿  Backend.cpp
+D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\Backend\Backend.cpp(14,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   Window.cpp
-D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\Window\Window.cpp(12,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\Window\Window.cpp(12,31): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\Window\Window.cpp(24,26): warning C4244: 'argument': conversion from 'float' to 'GLsizei', possible loss of data
-D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\Window\Window.cpp(24,20): warning C4244: 'argument': conversion from 'float' to 'GLsizei', possible loss of data
+  main.cpp
   Generating Code...
 LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   3DCompulsory2.vcxproj -> D:\3DProgramming\3DCompulsory2\3DCompulsory2\x64\Debug\3DCompulsory2.exe

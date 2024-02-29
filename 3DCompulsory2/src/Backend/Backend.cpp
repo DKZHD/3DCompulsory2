@@ -1,18 +1,15 @@
 #include "Backend.h"
 
-void Backend::initialize(Window* initPtr)
+void Backend::initialize()
 {
-    glfwInit();
-    WindowInit = initPtr;
-    WindowInit->initWindow();
+    window = Window::initWindow();
 }
 
 void Backend::run()
 {
     float FirstFrame = 0.0f;
-    glEnable(GL_DEPTH_TEST);
     
-    while(!glfwWindowShouldClose(WindowInit->window))
+    while(!glfwWindowShouldClose(window))
     {
         float CurrentFrame = glfwGetTime();
         float DeltaTime = CurrentFrame - FirstFrame;
