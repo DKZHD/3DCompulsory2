@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClCompile Include="Dependencies\glm\detail\glm.cpp" />
     <ClCompile Include="glad.c" />
+    <ClCompile Include="src\Camera\Camera.cpp" />
     <ClCompile Include="src\Input Events\Input.cpp" />
     <ClCompile Include="src\Backend\Backend.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -568,6 +569,7 @@
     <ClInclude Include="Dependencies\glm\vec4.hpp" />
     <ClInclude Include="Dependencies\glm\vector_relational.hpp" />
     <ClInclude Include="Dependencies\KHR\khrplatform.h" />
+    <ClInclude Include="src\Camera\Camera.h" />
     <ClInclude Include="src\Input Events\Input.h" />
     <ClInclude Include="src\Backend\Backend.h" />
     <ClInclude Include="src\Mesh\Mesh.h" />
