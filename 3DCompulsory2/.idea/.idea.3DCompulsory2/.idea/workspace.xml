@@ -8,10 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93667e7c-750b-4bc0-8cdb-a0d26d7126fa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Camera/Camera.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Camera/Camera.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.3DCompulsory2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.3DCompulsory2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3DCompulsory2.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/3DCompulsory2.vcxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Backend/Backend.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Backend/Backend.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Backend/Backend.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Backend/Backend.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Camera/Camera.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Camera/Camera.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Camera/Camera.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Camera/Camera.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +110,7 @@
       <workItem from="1709237012713" duration="487000" />
       <workItem from="1709237552744" duration="851000" />
       <workItem from="1709240882162" duration="332000" />
+      <workItem from="1709241978952" duration="747000" />
     </task>
     <servers />
   </component>
