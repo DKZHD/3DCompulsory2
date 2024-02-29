@@ -36,7 +36,7 @@ void VertexArray::Activate() const
 	glBindVertexArray(1);
 }
 
-VertexBuffer::VertexBuffer(std::vector<Vertex>& objectVector)
+VertexBuffer::VertexBuffer(const std::vector<Vertex>& objectVector)
 {
 	glGenBuffers(1, &vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
@@ -48,13 +48,13 @@ VertexBuffer::~VertexBuffer()
 	glDeleteBuffers(1, &vbo);
 }
 
-void VertexBuffer::Bind(std::vector<Vertex>& objectVector) const
+void VertexBuffer::Bind(const std::vector<Vertex>& objectVector) const
 {
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glBufferData(GL_ARRAY_BUFFER, objectVector.size() * sizeof(Vertex), objectVector.data(), GL_STATIC_DRAW);
 }
 
-ElementBuffer::ElementBuffer(std::vector<unsigned>& objectVector)
+ElementBuffer::ElementBuffer(const std::vector<unsigned>& objectVector)
 {
 	glGenBuffers(1, &ebo);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
@@ -66,7 +66,7 @@ ElementBuffer::~ElementBuffer()
 	glDeleteBuffers(1, &ebo);
 }
 
-void ElementBuffer::Bind(std::vector<unsigned>& objectVector) const
+void ElementBuffer::Bind(const std::vector<unsigned>& objectVector) const
 {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, objectVector.size() * sizeof(unsigned int), objectVector.data(), GL_STATIC_DRAW);

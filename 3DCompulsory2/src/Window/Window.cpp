@@ -2,7 +2,8 @@
 #include "Window.h"
 #include "../InputEvents/Input.h"
 
-
+float Window::width = 800.f;
+float Window::height = 600.f;
 GLFWwindow* Window::initWindow()
 {
     glfwInit();

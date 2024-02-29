@@ -46,6 +46,6 @@ struct Cube
 	float a{1.0f};
 	std::vector<Vertex> cVertices;
 	std::vector<GLuint> cIndices;
-	void CreateTriangle(float size);
+	void CreateCube(float size);
 };
 

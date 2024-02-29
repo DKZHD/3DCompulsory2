@@ -1,9 +1,9 @@
 #include "Input.h"
-
+#include "../Backend/Backend.h"
+#include "../Camera/Camera.h"
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
 #include "glm/vec3.hpp"
-#include "glm/detail/func_trigonometric.inl"
 #include "glm/ext/quaternion_geometric.hpp"
 
 void Input::framebuffer_size_callback(GLFWwindow* window, int width, int height)
@@ -11,12 +11,28 @@ void Input::framebuffer_size_callback(GLFWwindow* window, int width, int height)
     glViewport(0, 0, width, height);
 }
 
-void KeyBoardInput::processInput(GLFWwindow* window, Camera& camera)
+void KeyBoardInput::processInput(GLFWwindow* window)
 {
     if(glfwGetKey(window,GLFW_KEY_ESCAPE)==GLFW_PRESS)
     {
         glfwSetWindowShouldClose(window, true);
     }
+	if(glfwGetKey(window, GLFW_KEY_W)==GLFW_PRESS)
+	{
+		Backend::camera.cameraPos.z -= 3.f * Backend::DeltaTime;
+	}
+	if(glfwGetKey(window, GLFW_KEY_S)==GLFW_PRESS)
+	{
+		Backend::camera.cameraPos.z += 3.f * Backend::DeltaTime;
+	}
+	if(glfwGetKey(window, GLFW_KEY_A)==GLFW_PRESS)
+	{
+		Backend::camera.cameraPos.x -= 3.f * Backend::DeltaTime;
+	}
+	if(glfwGetKey(window, GLFW_KEY_D)==GLFW_PRESS)
+	{
+		Backend::camera.cameraPos.x += 3.f * Backend::DeltaTime;
+	}
 }
 
 namespace MouseInput
@@ -27,7 +43,6 @@ namespace MouseInput
 	float yaw = -90.f;
 	float pitch = 0.f;
 	float fov = 70.f;
-	Camera* camera;
 }
 
 
@@ -56,5 +71,5 @@ void MouseInput::mouse_callback(GLFWwindow* window, double xpos, double ypos)
 	direction.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
 	direction.y = sin(glm::radians(pitch));
 	direction.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
-	//fwdVector = glm::normalize(direction);
+	Backend::camera.cameraFront = glm::normalize(direction);
 }

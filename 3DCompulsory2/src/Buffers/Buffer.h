@@ -20,17 +20,17 @@ class VertexBuffer
 public:
 	unsigned int vbo;
 	VertexBuffer() = default;
-	VertexBuffer(std::vector<Vertex>& objectVector);
+	VertexBuffer(const std::vector<Vertex>& objectVector);
 	~VertexBuffer();
-	void Bind(std::vector<Vertex>& objectVector) const;
+	void Bind(const std::vector<Vertex>& objectVector) const;
 };
 class ElementBuffer
 {
 public:
 	unsigned int ebo;
 	ElementBuffer() = default;
-	ElementBuffer(std::vector<unsigned int>& objectVector);
+	ElementBuffer(const std::vector<unsigned int>& objectVector);
 	~ElementBuffer();
-	void Bind(std::vector<unsigned int>& objectVector) const;
+	void Bind(const std::vector<unsigned int>& objectVector) const;
 };
 
