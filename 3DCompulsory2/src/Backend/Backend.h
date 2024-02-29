@@ -1,14 +1,15 @@
 #pragma once
-#include "../Window/Window.h"
 #include "../Camera/Camera.h"
 #include "glm/gtc/type_ptr.inl"
-#include "GLFW/glfw3.h"
+
+struct GLFWwindow;
 
 class Backend
 {
 public:
     GLFWwindow *window;
-    Camera camera;
+    static Camera camera;
+    static float DeltaTime;
     
     void initialize();
     void run();

@@ -6,8 +6,8 @@ class Window
 {
 public:
 
-    static float height = 600.f;
-    static float width = 800.f;
+    static float height;
+    static float width;
     
     static GLFWwindow* initWindow();
 

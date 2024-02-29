@@ -13,7 +13,7 @@ class KeyBoardInput
 {
 
 public:
-	void processInput(GLFWwindow* window, Camera& camera);
+	static void processInput(GLFWwindow* window);
 };
 
 namespace MouseInput
@@ -27,6 +27,5 @@ namespace MouseInput
 
 	extern float fov;
 
-	extern Camera* camera;
 	void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 }
