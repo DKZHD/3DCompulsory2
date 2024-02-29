@@ -36,7 +36,13 @@
     <ClCompile Include="src\Backend\Backend.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Input Events\Input.cpp">
+    <ClCompile Include="src\InputEvents\Input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Buffers\Buffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1325,7 +1331,13 @@
     <ClInclude Include="src\Backend\Backend.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Input Events\Input.h">
+    <ClInclude Include="src\InputEvents\Input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Camera\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Buffers\Buffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
