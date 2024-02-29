@@ -21,7 +21,31 @@ public:
 	std::vector<Vertex> mVertices;
 	std::vector<GLuint> mIndices;
 
-	void triangle(float size);
+	
 
+};
+
+struct triangle
+{
+	float a{1.0f};
+	std::vector<Vertex> tVertices;
+	std::vector<GLuint> tIndices;
+	void CreateTriangle(float size);
+};
+
+struct Square
+{
+	float a{1.0f};
+	std::vector<Vertex> sVertices;
+	std::vector<GLuint> sIndices;
+	void CreateSquare(float size);
+};
+
+struct Cube
+{
+	float a{1.0f};
+	std::vector<Vertex> cVertices;
+	std::vector<GLuint> cIndices;
+	void CreateTriangle(float size);
 };
 

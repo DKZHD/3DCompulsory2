@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EF9A1D60-40F4-440C-A367-E723DBF93C42}|3DCompulsory2.vcxproj|C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\src\\Mesh\\Mesh.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{EF9A1D60-40F4-440C-A367-E723DBF93C42}|3DCompulsory2.vcxproj|solutionrelative:src\\Mesh\\Mesh.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EF9A1D60-40F4-440C-A367-E723DBF93C42}|3DCompulsory2.vcxproj|C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\src\\Mesh\\Mesh.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{EF9A1D60-40F4-440C-A367-E723DBF93C42}|3DCompulsory2.vcxproj|solutionrelative:src\\Mesh\\Mesh.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF9A1D60-40F4-440C-A367-E723DBF93C42}|3DCompulsory2.vcxproj|C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\src\\Mesh\\Mesh.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EF9A1D60-40F4-440C-A367-E723DBF93C42}|3DCompulsory2.vcxproj|solutionrelative:src\\Mesh\\Mesh.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EF9A1D60-40F4-440C-A367-E723DBF93C42}|3DCompulsory2.vcxproj|C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -22,30 +22,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Mesh.cpp",
               "DocumentMoniker": "C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\src\\Mesh\\Mesh.cpp",
               "RelativeDocumentMoniker": "src\\Mesh\\Mesh.cpp",
               "ToolTip": "C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\src\\Mesh\\Mesh.cpp",
               "RelativeToolTip": "src\\Mesh\\Mesh.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAaAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-02-29T20:53:53.825Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Mesh.h",
               "DocumentMoniker": "C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\src\\Mesh\\Mesh.h",
               "RelativeDocumentMoniker": "src\\Mesh\\Mesh.h",
               "ToolTip": "C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\src\\Mesh\\Mesh.h",
               "RelativeToolTip": "src\\Mesh\\Mesh.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAUwBoAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-02-29T20:47:32.869Z",
               "EditorCaption": ""
@@ -58,9 +58,10 @@
               "RelativeDocumentMoniker": "src\\main.cpp",
               "ToolTip": "C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\src\\main.cpp",
               "RelativeToolTip": "src\\main.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-02-29T20:47:32.937Z"
+              "WhenOpened": "2024-02-29T20:47:32.937Z",
+              "EditorCaption": ""
             }
           ]
         }
