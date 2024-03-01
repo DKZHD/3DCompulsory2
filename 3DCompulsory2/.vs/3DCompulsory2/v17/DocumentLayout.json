@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{EF9A1D60-40F4-440C-A367-E723DBF93C42}|3DCompulsory2.vcxproj|C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\src\\Mesh\\Mesh.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EF9A1D60-40F4-440C-A367-E723DBF93C42}|3DCompulsory2.vcxproj|solutionrelative:src\\Mesh\\Mesh.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{EF9A1D60-40F4-440C-A367-E723DBF93C42}|3DCompulsory2.vcxproj|C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\src\\Backend\\Backend.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{EF9A1D60-40F4-440C-A367-E723DBF93C42}|3DCompulsory2.vcxproj|solutionrelative:src\\Backend\\Backend.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -27,10 +31,6 @@
       "RelativeMoniker": "D:0:0:{EF9A1D60-40F4-440C-A367-E723DBF93C42}|3DCompulsory2.vcxproj|solutionrelative:src\\FrontEnd\\FrontEnd.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EF9A1D60-40F4-440C-A367-E723DBF93C42}|3DCompulsory2.vcxproj|C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\src\\Mesh\\Mesh.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{EF9A1D60-40F4-440C-A367-E723DBF93C42}|3DCompulsory2.vcxproj|solutionrelative:src\\Mesh\\Mesh.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EF9A1D60-40F4-440C-A367-E723DBF93C42}|3DCompulsory2.vcxproj|C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\src\\Camera\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{EF9A1D60-40F4-440C-A367-E723DBF93C42}|3DCompulsory2.vcxproj|solutionrelative:src\\Camera\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
@@ -42,11 +42,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Window.cpp",
               "DocumentMoniker": "C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\src\\Window\\Window.cpp",
               "RelativeDocumentMoniker": "src\\Window\\Window.cpp",
@@ -54,18 +54,17 @@
               "RelativeToolTip": "src\\Window\\Window.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-01T00:43:32.126Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-01T00:43:32.126Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "Mesh.cpp",
               "DocumentMoniker": "C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\src\\Mesh\\Mesh.cpp",
               "RelativeDocumentMoniker": "src\\Mesh\\Mesh.cpp",
               "ToolTip": "C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\src\\Mesh\\Mesh.cpp",
               "RelativeToolTip": "src\\Mesh\\Mesh.cpp",
-              "ViewState": "AQIAAEYAAAAAAAAAAAAAAFoAAAABAAAA",
+              "ViewState": "AQIAACkAAAAAAAAAAAAAADAAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-02-29T20:53:53.825Z",
               "EditorCaption": ""
@@ -80,12 +79,11 @@
               "RelativeToolTip": "src\\Camera\\Camera.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-01T00:36:53.789Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-01T00:36:53.789Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Backend.cpp",
               "DocumentMoniker": "C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\src\\Backend\\Backend.cpp",
               "RelativeDocumentMoniker": "src\\Backend\\Backend.cpp",
@@ -93,25 +91,24 @@
               "RelativeToolTip": "src\\Backend\\Backend.cpp",
               "ViewState": "AQIAAA8AAAAAAAAAAAAAABUAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-01T00:17:44.719Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-01T00:17:44.719Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Backend.h",
               "DocumentMoniker": "C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\src\\Backend\\Backend.h",
               "RelativeDocumentMoniker": "src\\Backend\\Backend.h",
               "ToolTip": "C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\src\\Backend\\Backend.h",
               "RelativeToolTip": "src\\Backend\\Backend.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAMAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-03-01T00:18:33.664Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "FrontEnd.cpp",
               "DocumentMoniker": "C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\src\\FrontEnd\\FrontEnd.cpp",
               "RelativeDocumentMoniker": "src\\FrontEnd\\FrontEnd.cpp",
@@ -119,12 +116,11 @@
               "RelativeToolTip": "src\\FrontEnd\\FrontEnd.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-02-29T22:51:43.274Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-29T22:51:43.274Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Mesh.h",
               "DocumentMoniker": "C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\src\\Mesh\\Mesh.h",
               "RelativeDocumentMoniker": "src\\Mesh\\Mesh.h",
@@ -132,12 +128,11 @@
               "RelativeToolTip": "src\\Mesh\\Mesh.h",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAABkAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-02-29T20:47:32.869Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-29T20:47:32.869Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Skole\\3D-Programmering\\Github\\3DCompulsory2\\3DCompulsory2\\src\\main.cpp",
               "RelativeDocumentMoniker": "src\\main.cpp",
@@ -145,8 +140,7 @@
               "RelativeToolTip": "src\\main.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-02-29T20:47:32.937Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-29T20:47:32.937Z"
             }
           ]
         }

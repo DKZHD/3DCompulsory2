@@ -10,14 +10,14 @@ void Mesh::CreateCube(glm::vec3 position, glm::vec3 scale, glm::vec3 color)
 	Package.emplace_back(position, scale);
 	Package.back().GetIndex() = Package.size() - 1;
 
-	Vertex v0{0.f, 0.f, 0.f, color}; /* Front-Top-left */
-	Vertex v1{1.f, 0.f, 0.f, color}; /* Front-Bot-left */
-	Vertex v2{1.f, 1.f, 0.f, color}; /* Front-bot-right */
-	Vertex v3{0.f, 1.f, 0.f, color}; /* Front-Top-right */
-	Vertex v4{0.f, 0.f, -1.f, color}; /* Back-Top-Left */
-	Vertex v5{1.f, 0.f, -1.f, color}; /* Back-Bot-left */
-	Vertex v6{1.f, 1.f, -1.f, color}; /* Back-Bot-right */
-	Vertex v7{0.f, 1.f, -1.f, color}; /* Back-Top-right */
+	Vertex v0{0.f, 0.f, 0.f, color}; /* Front-Bot-left */
+	Vertex v1{1.f, 0.f, 0.f, color}; /* Front-Bot-right */
+	Vertex v2{1.f, 1.f, 0.f, color}; /* Front-Top-right */
+	Vertex v3{0.f, 1.f, 0.f, color}; /* Front-Top-left */
+	Vertex v4{0.f, 0.f, -1.f, color}; /* Back-Bot-left */
+	Vertex v5{1.f, 0.f, -1.f, color}; /* Back-Bot-right */
+	Vertex v6{1.f, 1.f, -1.f, color}; /* Back-Top-right */
+	Vertex v7{0.f, 1.f, -1.f, color}; /* Back-Top-left */
 
 	mVertices.emplace_back(v0);
 	mVertices.emplace_back(v1);
@@ -37,44 +37,45 @@ void Mesh::CreateCube(glm::vec3 position, glm::vec3 scale, glm::vec3 color)
 	mIndices.emplace_back(0);
 
 	/* Right */
-	mIndices.emplace_back(3);
-	mIndices.emplace_back(7);
+	mIndices.emplace_back(1);
+	mIndices.emplace_back(5);
 	mIndices.emplace_back(6);
 	mIndices.emplace_back(6);
 	mIndices.emplace_back(2);
-	mIndices.emplace_back(3);
-
-	/* Back */
-	mIndices.emplace_back(6);
-	mIndices.emplace_back(5);
-	mIndices.emplace_back(4);
-	mIndices.emplace_back(4);
-	mIndices.emplace_back(7);
-	mIndices.emplace_back(6);
+	mIndices.emplace_back(1);
 
 	/* Left */
 	mIndices.emplace_back(0);
-	mIndices.emplace_back(1);
-	mIndices.emplace_back(5);
-	mIndices.emplace_back(5);
-	mIndices.emplace_back(4);
-	mIndices.emplace_back(0);
-
-	/* Top */
-	mIndices.emplace_back(0);
 	mIndices.emplace_back(3);
 	mIndices.emplace_back(7);
 	mIndices.emplace_back(7);
 	mIndices.emplace_back(4);
 	mIndices.emplace_back(0);
 
-	/* Bottom */
-	mIndices.emplace_back(1);
+	/* Back */
+	mIndices.emplace_back(4);
+	mIndices.emplace_back(7);
 	mIndices.emplace_back(6);
+	mIndices.emplace_back(6);
+	mIndices.emplace_back(5);
+	mIndices.emplace_back(4);
+
+	/* Top */
+	mIndices.emplace_back(3);
 	mIndices.emplace_back(2);
+	mIndices.emplace_back(6);
 	mIndices.emplace_back(6);
 	mIndices.emplace_back(7);
-	mIndices.emplace_back(2);
+	mIndices.emplace_back(3);
+
+	/* Bottom */
+	mIndices.emplace_back(0);
+	mIndices.emplace_back(4);
+	mIndices.emplace_back(5);
+	mIndices.emplace_back(5);
+	mIndices.emplace_back(1);
+	mIndices.emplace_back(0);
+
 
 }
 
