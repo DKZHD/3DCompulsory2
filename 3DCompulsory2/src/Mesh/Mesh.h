@@ -7,11 +7,13 @@
 struct Vertex
 {
 	float x, y , z;
-	float v0, v1, v2;
-	Vertex(float x, float y, float z, float r, float g, float b) : x(x), y(y), z(z), v0(r), v1(g), v2(b)
+	glm::vec3 Color;
+	Vertex(float x, float y, float z, glm::vec3 rgb) : x(x), y(y), z(z), Color(rgb)
 	{
 	}
 };
+
+struct Cube;
 
 class Mesh
 {
@@ -20,9 +22,10 @@ class Mesh
 public:
 	std::vector<Vertex> mVertices;
 	std::vector<GLuint> mIndices;
-
+	std::vector<Cube> Package;
+	void Draw();
 	
-
+	void CreateCube(glm::vec3 position, glm::vec3 scale, glm::vec3 color);
 };
 
 struct Cube : public Mesh
@@ -30,20 +33,18 @@ struct Cube : public Mesh
 private:
 	int index = 0;
 	glm::vec3 Position;
-	unsigned int Program;
 	glm::vec3 scale;
 
 public:
-	Cube(float x, float y, float z, glm::vec3 scale, const unsigned int& program)
-		: Position(x, y, z), Program(program), scale(scale)
+	Cube(glm::vec3 position, glm::vec3 scale)
+		: Position(position), scale(scale)
 	{
 	}
-	void Draw();
-	void TranslateDraw(float x, float y, float z, bool should_stop = false);
+	bool bIsPlayer;
 	glm::vec3& GetPosition() { return Position; }
 	glm::vec3& GetScale() { return scale; }
 	int& GetIndex() { return index; }
 	float a{1.0f};
-	void CreateCube(float size);
+	
 };
 

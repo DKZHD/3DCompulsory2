@@ -1,106 +1,91 @@
 #include "Mesh.h"
 
-void Cube::CreateCube(float size)
+#include "../Shaders/Shader.h"
+#include "glm/gtc/type_ptr.hpp"
+#include "glm/gtx/transform.hpp"
+
+void Mesh::CreateCube(glm::vec3 position, glm::vec3 scale, glm::vec3 color)
 {
-	a = size;
-	Vertex v0 {-a, -a, a, 1.0f, 0.0f, 0.0f};
-	Vertex v1{a, -a, a, 1.0f, 0.0f, 0.0f};
-	Vertex v2{a, a, a, 1.0f, 0.0f, 0.0f};
-	Vertex v3{-a, a, a, 1.0f, 0.0f, 0.0f};
-	Vertex v4{a, -a, -a, 1.0f, 0.0f, 0.0f};
-	Vertex v5{a, a, -a, 1.0f, 0.0f, 0.0f};
-	Vertex v6{-a, -a, -a, 1.0f, 0.0f, 0.0f};
-	Vertex v7{-a, a, -a, 1.0f, 0.0f, 0.0f};
 
-	//cIndices.emplace_back(0);
-	//cIndices.emplace_back(1);
-	//cIndices.emplace_back(3);
-	//cIndices.emplace_back(3);
-	//cIndices.emplace_back(1);
-	//cIndices.emplace_back(2);
-	//cIndices.emplace_back(1);
-	//cIndices.emplace_back(4);
-	//cIndices.emplace_back(2);
-	//cIndices.emplace_back(2);
-	//cIndices.emplace_back(4);
-	//cIndices.emplace_back(5);
-	//cIndices.emplace_back(6);
-	//cIndices.emplace_back(5);
-	//cIndices.emplace_back(5);
-	//cIndices.emplace_back(6);
-	//cIndices.emplace_back(7);
-	//cIndices.emplace_back(6);
-	//cIndices.emplace_back(0);
-	//cIndices.emplace_back(7);
-	//cIndices.emplace_back(7);
-	//cIndices.emplace_back(0);
-	//cIndices.emplace_back(3);
-	//cIndices.emplace_back(3);
-	//cIndices.emplace_back(2);
-	//cIndices.emplace_back(5);
-	//cIndices.emplace_back(5);
-	//cIndices.emplace_back(2);
-	//cIndices.emplace_back(7);
-	//cIndices.emplace_back(0);
-	//cIndices.emplace_back(1);
-	//cIndices.emplace_back(4);
-	//cIndices.emplace_back(4);
-	//cIndices.emplace_back(0);
-	//cIndices.emplace_back(6);
+	Package.emplace_back(position, scale);
+	Package.back().GetIndex() = Package.size() - 1;
 
-	///* Front */
-	//cVertices.emplace_back(v0);
-	//cVertices.emplace_back(v1);
-	//cVertices.emplace_back(v3);
-	//cVertices.emplace_back(v3);
-	//cVertices.emplace_back(v1);
-	//cVertices.emplace_back(v2);
+	Vertex v0{0.f, 0.f, 0.f, color}; /* Front-Top-left */
+	Vertex v1{1.f, 0.f, 0.f, color}; /* Front-Bot-left */
+	Vertex v2{1.f, 1.f, 0.f, color}; /* Front-bot-right */
+	Vertex v3{0.f, 1.f, 0.f, color}; /* Front-Top-right */
+	Vertex v4{0.f, 0.f, -1.f, color}; /* Back-Top-Left */
+	Vertex v5{1.f, 0.f, -1.f, color}; /* Back-Bot-left */
+	Vertex v6{1.f, 1.f, -1.f, color}; /* Back-Bot-right */
+	Vertex v7{0.f, 1.f, -1.f, color}; /* Back-Top-right */
 
-	///* Right */
-	//cVertices.emplace_back(v1);
-	//cVertices.emplace_back(v4);
-	//cVertices.emplace_back(v2);
-	//cVertices.emplace_back(v2);
-	//cVertices.emplace_back(v4);
-	//cVertices.emplace_back(v5);
+	mVertices.emplace_back(v0);
+	mVertices.emplace_back(v1);
+	mVertices.emplace_back(v2);
+	mVertices.emplace_back(v3);
+	mVertices.emplace_back(v4);
+	mVertices.emplace_back(v5);
+	mVertices.emplace_back(v6);
+	mVertices.emplace_back(v7);
+						   
+	/* Front */
+	mIndices.emplace_back(0);
+	mIndices.emplace_back(1);
+	mIndices.emplace_back(2);
+	mIndices.emplace_back(2);
+	mIndices.emplace_back(3);
+	mIndices.emplace_back(0);
 
-	///* Back */
-	//cVertices.emplace_back(v4);
-	//cVertices.emplace_back(v6);
-	//cVertices.emplace_back(v5);
-	//cVertices.emplace_back(v5);
-	//cVertices.emplace_back(v6);
-	//cVertices.emplace_back(v7);
+	/* Right */
+	mIndices.emplace_back(3);
+	mIndices.emplace_back(7);
+	mIndices.emplace_back(6);
+	mIndices.emplace_back(6);
+	mIndices.emplace_back(2);
+	mIndices.emplace_back(3);
 
-	///* Left */
-	//cVertices.emplace_back(v6);
-	//cVertices.emplace_back(v0);
-	//cVertices.emplace_back(v7);
-	//cVertices.emplace_back(v7);
-	//cVertices.emplace_back(v0);
-	//cVertices.emplace_back(v3);
+	/* Back */
+	mIndices.emplace_back(6);
+	mIndices.emplace_back(5);
+	mIndices.emplace_back(4);
+	mIndices.emplace_back(4);
+	mIndices.emplace_back(7);
+	mIndices.emplace_back(6);
 
-	///* Top */
-	//cVertices.emplace_back(v3);
-	//cVertices.emplace_back(v2);
-	//cVertices.emplace_back(v5);
-	//cVertices.emplace_back(v5);
-	//cVertices.emplace_back(v2);
-	//cVertices.emplace_back(v7);
+	/* Left */
+	mIndices.emplace_back(0);
+	mIndices.emplace_back(1);
+	mIndices.emplace_back(5);
+	mIndices.emplace_back(5);
+	mIndices.emplace_back(4);
+	mIndices.emplace_back(0);
 
-	///* Bottom */
-	//cVertices.emplace_back(v0);
-	//cVertices.emplace_back(v1);
-	//cVertices.emplace_back(v4);
-	//cVertices.emplace_back(v4);
-	//cVertices.emplace_back(v1);
-	//cVertices.emplace_back(v6);
+	/* Top */
+	mIndices.emplace_back(0);
+	mIndices.emplace_back(3);
+	mIndices.emplace_back(7);
+	mIndices.emplace_back(7);
+	mIndices.emplace_back(4);
+	mIndices.emplace_back(0);
+
+	/* Bottom */
+	mIndices.emplace_back(1);
+	mIndices.emplace_back(6);
+	mIndices.emplace_back(2);
+	mIndices.emplace_back(6);
+	mIndices.emplace_back(7);
+	mIndices.emplace_back(2);
 
 }
-void Cube::Draw()
+
+void Mesh::Draw()
 {
-	
+	for (auto& cube:Package)
+	{
+		glm::mat4 model(1.f);
+        model = glm::translate(model, cube.GetPosition());
+        model = glm::scale(model, cube.GetScale());
+        glUniformMatrix4fv(glGetUniformLocation(Shader::Program, "modelMatrix"), 1, GL_FALSE, glm::value_ptr(model));
+        glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, (void*)(cube.GetIndex() * 36 * sizeof(unsigned int)));
+	}
 }
-;
-
-
