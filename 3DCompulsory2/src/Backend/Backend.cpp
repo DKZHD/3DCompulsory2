@@ -44,7 +44,7 @@ void Backend::run()
 		glUseProgram(Shader::Program);
         KeyBoardInput::processInput(window);
 
-        glUniformMatrix4fv(camera.projectionLoc, 1, GL_FALSE, glm::value_ptr(camera.getProjection(800, 600)));
+        glUniformMatrix4fv(camera.projectionLoc, 1, GL_FALSE, glm::value_ptr(camera.getProjection(Window::width, Window::height)));
         glUniformMatrix4fv(camera.viewLoc, 1, GL_FALSE, glm::value_ptr(camera.getView()));
 
         Update(DeltaTime);

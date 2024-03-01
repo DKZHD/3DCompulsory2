@@ -19,27 +19,27 @@ void KeyBoardInput::processInput(GLFWwindow* window)
     }
 	if(glfwGetKey(window, GLFW_KEY_W)==GLFW_PRESS)
 	{
-		Backend::camera.cameraPos += 3.f * Backend::camera.cameraFront * Backend::DeltaTime;
+		Backend::camera.cameraPos += 5.f * Backend::camera.cameraFront * Backend::DeltaTime;
 	}
 	if(glfwGetKey(window, GLFW_KEY_S)==GLFW_PRESS)
 	{
-		Backend::camera.cameraPos -= 3.f * Backend::camera.cameraFront * Backend::DeltaTime;
+		Backend::camera.cameraPos -= 5.f * Backend::camera.cameraFront * Backend::DeltaTime;
 	}
 	if(glfwGetKey(window, GLFW_KEY_A)==GLFW_PRESS)
 	{
-		Backend::camera.cameraPos -= (3.f * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
+		Backend::camera.cameraPos -= (5.f * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
 	}
 	if(glfwGetKey(window, GLFW_KEY_D)==GLFW_PRESS)
 	{
-		Backend::camera.cameraPos += (3.f * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
+		Backend::camera.cameraPos += (5.f * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
 	}
 	if(glfwGetKey(window, GLFW_KEY_SPACE)==GLFW_PRESS)
 	{
-		Backend::camera.cameraPos.y += 3.f * Backend::DeltaTime;
+		Backend::camera.cameraPos.y += 5.f * Backend::DeltaTime;
 	}
 	if(glfwGetKey(window, GLFW_KEY_LEFT_SHIFT)==GLFW_PRESS)
 	{
-		Backend::camera.cameraPos.y -= 3.f * Backend::DeltaTime;
+		Backend::camera.cameraPos.y -= 5.f * Backend::DeltaTime;
 	}
 }
 
