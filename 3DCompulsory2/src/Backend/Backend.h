@@ -14,10 +14,15 @@ public:
     static Camera camera;
     static float DeltaTime;
     Mesh mesh;
+
+    Backend() = default;
     
     virtual void initialize();
+    virtual void create();
     virtual void run();
     virtual void Update(float deltaTime);
+
+    virtual ~Backend();
 
 private:
     VertexBuffer* VBO = nullptr;

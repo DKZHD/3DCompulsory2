@@ -23,7 +23,7 @@ ShaderSource Shader::ReadShaderFromFile(const char* filepathVert, const char* fi
 GLuint Shader::Program;
 void Shader::CreateProgram()
 {
-	ShaderSource source = ReadShaderFromFile("Shaders/VertexShader.vert", "Shaders/FragmentShader.frag");
+	ShaderSource source = ReadShaderFromFile("src/Shaders/VertexShader.vert", "src/Shaders/FragmentShader.frag");
 	Program = glCreateProgram();
 	const char* VertexSource = source.VertSource.c_str();
 	const char* FragmentSource = source.FragSource.c_str();

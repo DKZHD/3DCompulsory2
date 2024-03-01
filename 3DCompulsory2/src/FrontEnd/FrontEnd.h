@@ -4,7 +4,11 @@
 class FrontEnd : public Backend
 {
 public:
-	void initialize() override;
+	FrontEnd() = default;
+	
+	void create() override;
 	void Update(float deltaTime) override;
+
+	~FrontEnd() override = default;
 };
 

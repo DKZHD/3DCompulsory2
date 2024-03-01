@@ -6,6 +6,6 @@ int main()
 {
     Backend backend;
     FrontEnd frontend;
-    frontend.run();
+    frontend.initialize();
     return 0;
 }
