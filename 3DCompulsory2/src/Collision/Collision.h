@@ -1,6 +1,5 @@
 #pragma once
 #include <glm/vec3.hpp>
-#includ
 
 class Cube;
 
@@ -14,5 +13,5 @@ public:
     
     Collision(glm::vec3 position, glm::vec3 scale, Cube* realCube);
     void checkWorldCollision();
-    void checkCollision(Collision& cube1);
+    void checkCollision(Collision& other);
 };

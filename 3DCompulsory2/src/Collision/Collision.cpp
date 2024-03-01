@@ -4,8 +4,9 @@
 
 Collision::Collision(glm::vec3 position, glm::vec3 scale, Cube* realCube)
 {
-    min = position - scale;
+    min = position;
     max = position + scale;
+    max.z = position.z - scale.z;
 
     cube = realCube;
 }
@@ -16,16 +17,16 @@ void Collision::checkWorldCollision()
     
 }
 
-void Collision::checkCollision(Collision& cube1)
+void Collision::checkCollision(Collision& other)
 {
-    if(cube1.min.x < max.x && cube1.max.x > min.x &&
-        cube1.min.y < max.y && cube1.max.y > min.y &&
-        cube1.min.z < max.z && cube1.max.z > min.z)
+    if(other.min.x < max.x && other.max.x > min.x &&
+        other.min.y < max.y && other.max.y > min.y &&
+        other.min.z < max.z && other.max.z > min.z)
     {
         std::cout << "Collision" << std::endl;
-        if(cube.bIsPlayer == true || cube1.cube.bIsPlayer == true)
-        {
-            std::cout << "Player Collision" << std::endl;
-        }
+        // if(cube.bIsPlayer == true || other.cube.bIsPlayer == true)
+        // {
+        //     std::cout << "Player Collision" << std::endl;
+        // }
     }
 }
