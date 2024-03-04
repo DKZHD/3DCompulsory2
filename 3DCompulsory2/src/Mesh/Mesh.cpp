@@ -1,14 +1,18 @@
 #include "Mesh.h"
 
+#include <iostream>
+
+
 #include "../Shaders/Shader.h"
 #include "glm/gtc/type_ptr.hpp"
 #include "glm/gtx/transform.hpp"
 
-void Mesh::CreateCube(glm::vec3 position, glm::vec3 scale, glm::vec3 color)
+void Mesh::CreateCube(glm::vec3 position, glm::vec3 scale, glm::vec3 color, bool isPlayer)
 {
 
 	Package.emplace_back(position, scale);
 	Package.back().GetIndex() = Package.size() - 1;
+	Package.back().bIsPlayer = isPlayer;
 
 	Vertex v0{0.f, 0.f, 0.f, color}; /* Front-Bot-left */
 	Vertex v1{1.f, 0.f, 0.f, color}; /* Front-Bot-right */
@@ -80,10 +84,22 @@ void Mesh::CreateCube(glm::vec3 position, glm::vec3 scale, glm::vec3 color)
 
 }
 
+void Cube::AddCollider(glm::vec3 scale)
+{
+	Collider = std::make_shared<Collision>(GetPosition(),scale,this);
+	std::cout << "Collision Added \n";
+}
+
+Cube::~Cube()
+{
+}
+
 void Mesh::Draw()
 {
 	for (auto& cube:Package)
 	{
+		if (cube.Collider)
+			cube.Collider->UpdatePosition(cube.GetPosition());
 		glm::mat4 model(1.f);
         model = glm::translate(model, cube.GetPosition());
         model = glm::scale(model, cube.GetScale());

@@ -11,7 +11,7 @@ void Input::framebuffer_size_callback(GLFWwindow* window, int width, int height)
     glViewport(0, 0, width, height);
 }
 
-void KeyBoardInput::processInput(GLFWwindow* window)
+void KeyBoardInput::processInput(GLFWwindow* window, Cube& player)
 {
     if(glfwGetKey(window,GLFW_KEY_ESCAPE)==GLFW_PRESS)
     {
@@ -20,6 +20,7 @@ void KeyBoardInput::processInput(GLFWwindow* window)
 	if(glfwGetKey(window, GLFW_KEY_W)==GLFW_PRESS)
 	{
 		Backend::camera.cameraPos += 5.f * Backend::camera.cameraFront * Backend::DeltaTime;
+		player.GetPosition() += 5.f * Backend::camera.cameraFront * Backend::DeltaTime;
 	}
 	if(glfwGetKey(window, GLFW_KEY_S)==GLFW_PRESS)
 	{

@@ -33,7 +33,7 @@ void Backend::run()
     EBO = new ElementBuffer(mesh.mIndices);
 
     VAO.Activate();
-    glm::vec3 color(Color::Maroon);
+    glm::vec3 color(Color::Teal);
     while(!glfwWindowShouldClose(window))
     {
         const float CurrentFrame = glfwGetTime();
@@ -42,7 +42,7 @@ void Backend::run()
         glClearColor(color.x, color.y, color.z, 1.f);
     	glClear(GL_COLOR_BUFFER_BIT    | GL_DEPTH_BUFFER_BIT);
 		glUseProgram(Shader::Program);
-        KeyBoardInput::processInput(window);
+        KeyBoardInput::processInput(window, mesh.Package.front());
 
         glUniformMatrix4fv(camera.projectionLoc, 1, GL_FALSE, glm::value_ptr(camera.getProjection(Window::width, Window::height)));
         glUniformMatrix4fv(camera.viewLoc, 1, GL_FALSE, glm::value_ptr(camera.getView()));

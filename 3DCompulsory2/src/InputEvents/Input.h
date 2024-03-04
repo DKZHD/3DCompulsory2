@@ -1,5 +1,6 @@
 #pragma once
 
+class Cube;
 class Camera;
 struct GLFWwindow;
 
@@ -13,7 +14,7 @@ class KeyBoardInput
 {
 
 public:
-	static void processInput(GLFWwindow* window);
+	static void processInput(GLFWwindow* window, Cube& player);
 };
 
 namespace MouseInput

@@ -4,12 +4,14 @@
 
 void FrontEnd::create()
 {
+	// Player
+	mesh.CreateCube(glm::vec3(0, 0.5, 0.f), glm::vec3(0.75f, 1.3f, 0.75f), Color::White, true);
 	mesh.CreateCube(glm::vec3(0.f), glm::vec3(20,0.5,20), Color::Blue);
-	mesh.CreateCube(glm::vec3(0.f, 3.f, 0.f), glm::vec3(10,2,10), Color::Pink);
-	std::cout << "pls work" << std::endl;
+	mesh.Package.back().AddCollider(glm::vec3(20, 5.f, 20));
+	mesh.CreateCube(glm::vec3(10.f, 10.f, -10.f), glm::vec3(1.f), Color::Pink);
+	mesh.Package.back().AddCollider(glm::vec3(1.f));
 }
 
 void FrontEnd::Update(float deltaTime)
 {
-	
 }

@@ -1,2 +1,6 @@
-﻿  FrontEnd.cpp
+﻿  Camera.cpp
+  Input.cpp
+D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\InputEvents\Input.cpp(66,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\InputEvents\Input.cpp(67,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
   3DCompulsory2.vcxproj -> D:\3DProgramming\3DCompulsory2\3DCompulsory2\x64\Debug\3DCompulsory2.exe
