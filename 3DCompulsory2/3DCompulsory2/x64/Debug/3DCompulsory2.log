@@ -1,3 +1,2 @@
-﻿  Mesh.cpp
-C:\Skole\3D-Programmering\Github\3DCompulsory2\3DCompulsory2\src\Mesh\Mesh.cpp(11,45): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  3DCompulsory2.vcxproj -> C:\Skole\3D-Programmering\Github\3DCompulsory2\3DCompulsory2\x64\Debug\3DCompulsory2.exe
+﻿  FrontEnd.cpp
+  3DCompulsory2.vcxproj -> D:\3DProgramming\3DCompulsory2\3DCompulsory2\x64\Debug\3DCompulsory2.exe
