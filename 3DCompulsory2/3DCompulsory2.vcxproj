@@ -141,6 +141,7 @@
     <ClCompile Include="src\Backend\Backend.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Mesh\Mesh.cpp" />
+    <ClCompile Include="src\NPC\NPC.cpp" />
     <ClCompile Include="src\Shaders\Shader.cpp" />
     <ClCompile Include="src\Window\Window.cpp" />
   </ItemGroup>
@@ -582,6 +583,7 @@
     <ClInclude Include="src\InputEvents\Input.h" />
     <ClInclude Include="src\Backend\Backend.h" />
     <ClInclude Include="src\Mesh\Mesh.h" />
+    <ClInclude Include="src\NPC\NPC.h" />
     <ClInclude Include="src\Shaders\Shader.h" />
     <ClInclude Include="src\Window\Window.h" />
   </ItemGroup>
