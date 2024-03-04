@@ -1,6 +1,8 @@
 #include "FrontEnd.h"
 #include <iostream>
 #include "../Color.h"
+#include "../NPC/NPC.h"
+NPC npc;
 
 void FrontEnd::create()
 {
@@ -10,8 +12,12 @@ void FrontEnd::create()
 	mesh.Package.back().AddCollider(glm::vec3(20, 5.f, 20));
 	mesh.CreateCube(glm::vec3(10.f, 10.f, -10.f), glm::vec3(1.f), Color::Pink);
 	mesh.Package.back().AddCollider(glm::vec3(1.f));
+
+	//NPC
+	npc.initNPC();
 }
 
 void FrontEnd::Update(float deltaTime)
 {
+	npc.updatePos(mesh.Package.back());
 }

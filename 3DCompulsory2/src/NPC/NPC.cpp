@@ -8,9 +8,9 @@
 void NPC::initNPC()
 {
     Points.emplace_back(glm::vec3(0,0,0));
-    Points.emplace_back(glm::vec3(3,0,3));
-    Points.emplace_back(glm::vec3(3.6f,0,5.5f));
-    Points.emplace_back(glm::vec3(7.3f,0,2.f));
+    Points.emplace_back(glm::vec3(20,0,12));
+    Points.emplace_back(glm::vec3(30,0,20));
+    Points.emplace_back(glm::vec3(35,0,17));
 
     GetPointsInFunction(0.01f, Path, Points);
 }
@@ -50,19 +50,27 @@ void NPC::GetPointsInFunction(float step, std::vector<glm::vec3>& path, std::vec
     }
 }
 
-void NPC::updatePos(Cube* cube)
+void NPC::updatePos(Cube& cube)
 {
-    float t = 0.f;
-    for (auto position : Path)
+    if(i>=Path.size())
     {
-      cube->GetPosition() = position;
-        while(t>1.f)
-        {
-            t+=Backend::DeltaTime;
-        }
-        t=0.f;
+        bPathCompleted = true;
+        i--;
     }
-    
+    if(i<=0)
+    {
+        bPathCompleted = false;
+        i++;
+    }
+  cube.GetPosition() = Path[i];
+    if(!bPathCompleted)
+    {
+       i++;  
+    }
+    if(bPathCompleted)
+    {
+        i--;
+    }
     
 }
 
