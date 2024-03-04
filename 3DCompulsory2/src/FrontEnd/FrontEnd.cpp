@@ -4,8 +4,8 @@
 
 void FrontEnd::create()
 {
-	mesh.CreateCube(glm::vec3(0.f), glm::vec3(20,0.5,20), Color::Grey);
-	mesh.CreateCube(glm::vec3(0.f, 0.5f, 0.f), glm::vec3(20,0.5,20), Color::Grey);
+	mesh.CreateCube(glm::vec3(0.f), glm::vec3(20,0.5,20), Color::Blue);
+	mesh.CreateCube(glm::vec3(0.f, 3.f, 0.f), glm::vec3(10,2,10), Color::Pink);
 	std::cout << "pls work" << std::endl;
 }
 

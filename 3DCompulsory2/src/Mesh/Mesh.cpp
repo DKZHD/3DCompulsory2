@@ -29,53 +29,54 @@ void Mesh::CreateCube(glm::vec3 position, glm::vec3 scale, glm::vec3 color)
 	mVertices.emplace_back(v7);
 						   
 	/* Front */
-	mIndices.emplace_back(0);
-	mIndices.emplace_back(1);
-	mIndices.emplace_back(2);
-	mIndices.emplace_back(2);
-	mIndices.emplace_back(3);
-	mIndices.emplace_back(0);
+	mIndices.emplace_back(0 + count);
+	mIndices.emplace_back(1 + count);
+	mIndices.emplace_back(2 + count);
+	mIndices.emplace_back(2 + count);
+	mIndices.emplace_back(3 + count);
+	mIndices.emplace_back(0 + count);
 
 	/* Right */
-	mIndices.emplace_back(1);
-	mIndices.emplace_back(5);
-	mIndices.emplace_back(6);
-	mIndices.emplace_back(6);
-	mIndices.emplace_back(2);
-	mIndices.emplace_back(1);
+	mIndices.emplace_back(1 + count);
+	mIndices.emplace_back(5 + count);
+	mIndices.emplace_back(6 + count);
+	mIndices.emplace_back(6 + count);
+	mIndices.emplace_back(2 + count);
+	mIndices.emplace_back(1 + count);
 
 	/* Left */
-	mIndices.emplace_back(0);
-	mIndices.emplace_back(3);
-	mIndices.emplace_back(7);
-	mIndices.emplace_back(7);
-	mIndices.emplace_back(4);
-	mIndices.emplace_back(0);
+	mIndices.emplace_back(0 + count);
+	mIndices.emplace_back(3 + count);
+	mIndices.emplace_back(7 + count);
+	mIndices.emplace_back(7 + count);
+	mIndices.emplace_back(4 + count);
+	mIndices.emplace_back(0 + count);
 
 	/* Back */
-	mIndices.emplace_back(4);
-	mIndices.emplace_back(7);
-	mIndices.emplace_back(6);
-	mIndices.emplace_back(6);
-	mIndices.emplace_back(5);
-	mIndices.emplace_back(4);
+	mIndices.emplace_back(4 + count);
+	mIndices.emplace_back(7 + count);
+	mIndices.emplace_back(6 + count);
+	mIndices.emplace_back(6 + count);
+	mIndices.emplace_back(5 + count);
+	mIndices.emplace_back(4 + count);
 
 	/* Top */
-	mIndices.emplace_back(3);
-	mIndices.emplace_back(2);
-	mIndices.emplace_back(6);
-	mIndices.emplace_back(6);
-	mIndices.emplace_back(7);
-	mIndices.emplace_back(3);
+	mIndices.emplace_back(3 + count);
+	mIndices.emplace_back(2 + count);
+	mIndices.emplace_back(6 + count);
+	mIndices.emplace_back(6 + count);
+	mIndices.emplace_back(7 + count);
+	mIndices.emplace_back(3 + count);
 
 	/* Bottom */
-	mIndices.emplace_back(0);
-	mIndices.emplace_back(4);
-	mIndices.emplace_back(5);
-	mIndices.emplace_back(5);
-	mIndices.emplace_back(1);
-	mIndices.emplace_back(0);
+	mIndices.emplace_back(0 + count);
+	mIndices.emplace_back(4 + count);
+	mIndices.emplace_back(5 + count);
+	mIndices.emplace_back(5 + count);
+	mIndices.emplace_back(1 + count);
+	mIndices.emplace_back(0 + count);
 
+	count += 8;
 
 }
 
