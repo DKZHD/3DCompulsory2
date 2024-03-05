@@ -8,7 +8,7 @@ public:
 
     int i = 0;
 
-    float cubeMovement = 0.001f;
+    float cubeMovement = 0.01f;
     
     void initNPC();
 

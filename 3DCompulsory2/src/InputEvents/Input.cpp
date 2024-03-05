@@ -22,23 +22,29 @@ void KeyBoardInput::processInput(GLFWwindow* window, Cube* player)
     }
 	if(glfwGetKey(window, GLFW_KEY_W)==GLFW_PRESS)
 	{
-		Backend::camera.cameraPos += 5.f * Backend::camera.cameraFront * Backend::DeltaTime;
+		Backend::camera.cameraPos.x += 5.f * Backend::camera.cameraFront.x * Backend::DeltaTime;
+		Backend::camera.cameraPos.z += 5.f * Backend::camera.cameraFront.z * Backend::DeltaTime;
 		player->GetPosition() += 5.f * Backend::camera.cameraFront * Backend::DeltaTime;
 		Backend::camera.setPlayerPos(player->GetPosition());
 	}
 	if(glfwGetKey(window, GLFW_KEY_S)==GLFW_PRESS)
 	{
-		Backend::camera.cameraPos -= 5.f * Backend::camera.cameraFront * Backend::DeltaTime;
+		Backend::camera.cameraPos.x -= 5.f * Backend::camera.cameraFront.x * Backend::DeltaTime;
+		Backend::camera.cameraPos.z -= 5.f * Backend::camera.cameraFront.z * Backend::DeltaTime;
 		player->GetPosition() -= 5.f * Backend::camera.cameraFront * Backend::DeltaTime;
 		Backend::camera.setPlayerPos(player->GetPosition());
 	}
 	if(glfwGetKey(window, GLFW_KEY_A)==GLFW_PRESS)
 	{
 		Backend::camera.cameraPos -= (5.f * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
+		player->GetPosition() -= (5.f * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
+		Backend::camera.setPlayerPos(player->GetPosition());
 	}
 	if(glfwGetKey(window, GLFW_KEY_D)==GLFW_PRESS)
 	{
 		Backend::camera.cameraPos += (5.f * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
+		player->GetPosition() += (5.f * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
+		Backend::camera.setPlayerPos(player->GetPosition());
 	}
 	if(glfwGetKey(window, GLFW_KEY_SPACE)==GLFW_PRESS)
 	{
@@ -50,11 +56,16 @@ void KeyBoardInput::processInput(GLFWwindow* window, Cube* player)
 	}
 	if(glfwGetKey(window,GLFW_KEY_E)==GLFW_PRESS)
 	{
-		if(player->bCanInteract == true)
+		if(player->bCanInteract == true && player->OverlappedCube->bIsPickup)
 		{
 			std::cout << "interacted\n";
 			player->OverlappedCube->bShouldRender = false;
+			player->OverlappedCube->bIsPickup = false;
 		}
+	}
+	if(glfwGetKey(window,GLFW_KEY_L)==GLFW_PRESS)
+	{
+		Backend::camera.cameraPos = glm::vec3(3.f, 10.f, 2);
 	}
 }
 
@@ -65,34 +76,39 @@ namespace MouseInput
 	double lastY = 0.f;
 	float yaw = -90.f;
 	float pitch = 0.f;
-	float fov = 70.f;
+	float fov = 45.f;
 }
 
 
 void MouseInput::mouse_callback(GLFWwindow* window, double xpos, double ypos)
 {
-	if (firstMouse)
+	if(!Backend::camera.CameraLock)
 	{
+		if (firstMouse)
+		{
+			lastX = xpos;
+			lastY = ypos;
+			firstMouse = false;
+		}
+		auto xoffset = static_cast<float>(xpos - lastX);
+		auto yoffset = static_cast<float>(lastY - ypos);
 		lastX = xpos;
 		lastY = ypos;
-		firstMouse = false;
+		const float sensitivity = 0.05f;
+		xoffset *= sensitivity;
+		yoffset *= sensitivity;
+		yaw += xoffset;
+		pitch += yoffset;
+		if (pitch > 89.0f)
+			pitch = 89.0f;
+		if (pitch < -89.0f)
+			pitch = -89.0f;
+		glm::vec3 direction;
+		Backend::camera.cameraFront;
+		direction.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+		direction.y = 0; /*sin(glm::radians(pitch));*/
+		direction.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+		Backend::camera.OrbitCamera(direction);
 	}
-	auto xoffset = static_cast<float>(xpos - lastX);
-	auto yoffset = static_cast<float>(lastY - ypos);
-	lastX = xpos;
-	lastY = ypos;
-	const float sensitivity = 0.05f;
-	xoffset *= sensitivity;
-	yoffset *= sensitivity;
-	yaw += xoffset;
-	pitch += yoffset;
-	if (pitch > 89.0f)
-		pitch = 89.0f;
-	if (pitch < -89.0f)
-		pitch = -89.0f;
-	glm::vec3 direction;
-	direction.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
-	direction.y = sin(glm::radians(pitch));
-	direction.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
-	Backend::camera.cameraFront = glm::normalize(direction);
+
 }

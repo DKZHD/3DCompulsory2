@@ -9,13 +9,14 @@ class Camera
 {
 
 public:
-    glm::vec3 cameraPos = glm::vec3 (0.0f, 2.5f, 3.0f);
+    glm::vec3 cameraPos = glm::vec3 (0.0f, 2.0f, 3.0f);
     glm::vec3 cameraFront = glm::vec3 (0.0f, 0.0f,-1.0f);
     glm::vec3 cameraUp = glm::vec3 (0.0f, 1.0f, 0.0f);
     glm::vec3 PlayerPos = glm::vec3(0.375f, 0.0f, -0.375f);
 
     int viewLoc;
     int projectionLoc;
+    bool CameraLock = false;
     
     void initCamera();
 
@@ -25,6 +26,7 @@ public:
     glm::mat4 getView();
     glm::mat4 getProjection(float width, float height);
     void setPlayerPos(glm::vec3 position);
+    glm::vec3 OrbitCamera(glm::vec3 direction);
 
     void updatePos(glm::vec3 newpos);
 };
