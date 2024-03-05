@@ -1,10 +1,11 @@
 #pragma once
 #include <memory>
-#include <string>
 #include "../Collision/Collision.h"
 #include <vector>
 #include <glad/glad.h>
 #include <glm/glm.hpp>
+
+class Pickup;
 
 struct Vertex
 {
@@ -19,17 +20,16 @@ class Cube;
 
 class Mesh
 {
-private:
 	int count;
 
 public:
 	std::vector<Vertex> mVertices;
 	std::vector<GLuint> mIndices;
-	std::vector<Cube> Package;
+	std::vector<std::shared_ptr<Cube>> Package;
 	
 
 	void Draw();
-	void CreateCube(glm::vec3 position, glm::vec3 scale, glm::vec3 color, bool isPlayer = false);
+	void CreateCube(glm::vec3 position, glm::vec3 scale, glm::vec3 color, bool isPickup = false ,bool isPlayer = false);
 };
 
 class Cube : Mesh
@@ -46,12 +46,17 @@ public:
 	}
 	bool bIsPlayer = false;
 	bool bCanInteract = false;
+	bool bIsPickup = false;
+	bool bShouldRender = true;
 
-	std::shared_ptr<Collision> Collider;
+	Cube* OverlappedCube;
+
+	std::unique_ptr<Collision> Collider;
 	glm::vec3& GetPosition() { return Position; }
 	glm::vec3& GetScale() { return Scale; }
 	int& GetIndex() { return index; }
 	void AddCollider(glm::vec3 scale);
 	virtual ~Cube();
 };
+
 

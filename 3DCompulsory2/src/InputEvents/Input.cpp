@@ -1,4 +1,7 @@
 #include "Input.h"
+
+#include <iostream>
+
 #include "../Backend/Backend.h"
 #include "../Camera/Camera.h"
 #include "glad/glad.h"
@@ -11,7 +14,7 @@ void Input::framebuffer_size_callback(GLFWwindow* window, int width, int height)
     glViewport(0, 0, width, height);
 }
 
-void KeyBoardInput::processInput(GLFWwindow* window, Cube& player)
+void KeyBoardInput::processInput(GLFWwindow* window, Cube* player)
 {
     if(glfwGetKey(window,GLFW_KEY_ESCAPE)==GLFW_PRESS)
     {
@@ -20,11 +23,14 @@ void KeyBoardInput::processInput(GLFWwindow* window, Cube& player)
 	if(glfwGetKey(window, GLFW_KEY_W)==GLFW_PRESS)
 	{
 		Backend::camera.cameraPos += 5.f * Backend::camera.cameraFront * Backend::DeltaTime;
-		player.GetPosition() += 5.f * Backend::camera.cameraFront * Backend::DeltaTime;
+		player->GetPosition() += 5.f * Backend::camera.cameraFront * Backend::DeltaTime;
+		Backend::camera.setPlayerPos(player->GetPosition());
 	}
 	if(glfwGetKey(window, GLFW_KEY_S)==GLFW_PRESS)
 	{
 		Backend::camera.cameraPos -= 5.f * Backend::camera.cameraFront * Backend::DeltaTime;
+		player->GetPosition() -= 5.f * Backend::camera.cameraFront * Backend::DeltaTime;
+		Backend::camera.setPlayerPos(player->GetPosition());
 	}
 	if(glfwGetKey(window, GLFW_KEY_A)==GLFW_PRESS)
 	{
@@ -41,6 +47,14 @@ void KeyBoardInput::processInput(GLFWwindow* window, Cube& player)
 	if(glfwGetKey(window, GLFW_KEY_LEFT_SHIFT)==GLFW_PRESS)
 	{
 		Backend::camera.cameraPos.y -= 5.f * Backend::DeltaTime;
+	}
+	if(glfwGetKey(window,GLFW_KEY_E)==GLFW_PRESS)
+	{
+		if(player->bCanInteract == true)
+		{
+			std::cout << "interacted\n";
+			player->OverlappedCube->bShouldRender = false;
+		}
 	}
 }
 
@@ -63,11 +77,11 @@ void MouseInput::mouse_callback(GLFWwindow* window, double xpos, double ypos)
 		lastY = ypos;
 		firstMouse = false;
 	}
-	float xoffset = xpos - lastX;
-	float yoffset = lastY - ypos;
+	auto xoffset = static_cast<float>(xpos - lastX);
+	auto yoffset = static_cast<float>(lastY - ypos);
 	lastX = xpos;
 	lastY = ypos;
-	float sensitivity = 0.05f;
+	const float sensitivity = 0.05f;
 	xoffset *= sensitivity;
 	yoffset *= sensitivity;
 	yaw += xoffset;

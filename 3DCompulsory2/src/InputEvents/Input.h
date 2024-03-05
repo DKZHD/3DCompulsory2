@@ -14,7 +14,7 @@ class KeyBoardInput
 {
 
 public:
-	static void processInput(GLFWwindow* window, Cube& player);
+	static void processInput(GLFWwindow* window, Cube* player);
 };
 
 namespace MouseInput

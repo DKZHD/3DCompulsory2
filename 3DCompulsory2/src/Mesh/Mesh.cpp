@@ -1,18 +1,15 @@
 #include "Mesh.h"
-
-#include <iostream>
-
-
 #include "../Shaders/Shader.h"
 #include "glm/gtc/type_ptr.hpp"
 #include "glm/gtx/transform.hpp"
 
-void Mesh::CreateCube(glm::vec3 position, glm::vec3 scale, glm::vec3 color, bool isPlayer)
+void Mesh::CreateCube(glm::vec3 position, glm::vec3 scale, glm::vec3 color, bool isPickup, bool isPlayer)
 {
 
-	Package.emplace_back(position, scale);
-	Package.back().GetIndex() = Package.size() - 1;
-	Package.back().bIsPlayer = isPlayer;
+	Package.emplace_back(std::make_shared<Cube>(position, scale));
+	Package.back()->GetIndex() = static_cast<int>(Package.size() - 1);
+	Package.back()->bIsPlayer = isPlayer;
+	Package.back()->bIsPickup = isPickup;
 
 	Vertex v0{0.f, 0.f, 0.f, color}; /* Front-Bot-left */
 	Vertex v1{1.f, 0.f, 0.f, color}; /* Front-Bot-right */
@@ -86,8 +83,7 @@ void Mesh::CreateCube(glm::vec3 position, glm::vec3 scale, glm::vec3 color, bool
 
 void Cube::AddCollider(glm::vec3 scale)
 {
-	Collider = std::make_shared<Collision>(GetPosition(),scale,this);
-	std::cout << "Collision Added \n";
+	Collider = std::make_unique<Collision>(GetPosition(),scale,this);
 }
 
 Cube::~Cube()
@@ -98,12 +94,15 @@ void Mesh::Draw()
 {
 	for (auto& cube:Package)
 	{
-		if (cube.Collider)
-			cube.Collider->UpdatePosition(cube.GetPosition());
-		glm::mat4 model(1.f);
-        model = glm::translate(model, cube.GetPosition());
-        model = glm::scale(model, cube.GetScale());
-        glUniformMatrix4fv(glGetUniformLocation(Shader::Program, "modelMatrix"), 1, GL_FALSE, glm::value_ptr(model));
-        glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, (void*)(cube.GetIndex() * 36 * sizeof(unsigned int)));
+		if(cube->bShouldRender)
+		{
+			if (cube->Collider)
+				cube->Collider->UpdatePosition(cube->GetPosition());
+			glm::mat4 model(1.f);
+			model = glm::translate(model, cube->GetPosition());
+			model = glm::scale(model, cube->GetScale());
+			glUniformMatrix4fv(glGetUniformLocation(Shader::Program, "modelMatrix"), 1, GL_FALSE, glm::value_ptr(model));
+			glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, (void*)(cube->GetIndex() * 36 * sizeof(unsigned int)));
+		}
 	}
 }

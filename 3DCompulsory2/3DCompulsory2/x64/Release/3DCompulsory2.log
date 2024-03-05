@@ -1,0 +1,50 @@
+﻿  Collision.cpp
+  FrontEnd.cpp
+D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\Collision\Collision.h(2,10): error C1083: Cannot open include file: 'glm/vec3.hpp': No such file or directory
+  (compiling source file 'src/Collision/Collision.cpp')
+  
+D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\Camera\Camera.h(2,10): error C1083: Cannot open include file: 'glm/fwd.hpp': No such file or directory
+  (compiling source file 'src/FrontEnd/FrontEnd.cpp')
+  
+  Buffer.cpp
+D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\Collision\Collision.h(2,10): error C1083: Cannot open include file: 'glm/vec3.hpp': No such file or directory
+  (compiling source file 'src/Buffers/Buffer.cpp')
+  
+  glm.cpp
+D:\3DProgramming\3DCompulsory2\3DCompulsory2\Dependencies\glm\detail\glm.cpp(7,10): error C1083: Cannot open include file: 'glm/gtx/dual_quaternion.hpp': No such file or directory
+  Camera.cpp
+D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\Camera\Camera.h(2,10): error C1083: Cannot open include file: 'glm/fwd.hpp': No such file or directory
+  (compiling source file 'src/Camera/Camera.cpp')
+  
+  Scene.cpp
+D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\FrontEnd\Scene.h(2,10): error C1083: Cannot open include file: 'glm/vec3.hpp': No such file or directory
+  (compiling source file 'src/FrontEnd/Scene.cpp')
+  
+  Input.cpp
+D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\Camera\Camera.h(2,10): error C1083: Cannot open include file: 'glm/fwd.hpp': No such file or directory
+  (compiling source file 'src/InputEvents/Input.cpp')
+  
+  Backend.cpp
+D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\Camera\Camera.h(2,10): error C1083: Cannot open include file: 'glm/fwd.hpp': No such file or directory
+  (compiling source file 'src/Backend/Backend.cpp')
+  
+  main.cpp
+D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\Camera\Camera.h(2,10): error C1083: Cannot open include file: 'glm/fwd.hpp': No such file or directory
+  (compiling source file 'src/main.cpp')
+  
+  Mesh.cpp
+D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\Collision\Collision.h(2,10): error C1083: Cannot open include file: 'glm/vec3.hpp': No such file or directory
+  (compiling source file 'src/Mesh/Mesh.cpp')
+  
+  NPC.cpp
+D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\Collision\Collision.h(2,10): error C1083: Cannot open include file: 'glm/vec3.hpp': No such file or directory
+  (compiling source file 'src/NPC/NPC.cpp')
+  
+  Shader.cpp
+D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\Shaders\Shader.h(3,10): error C1083: Cannot open include file: 'glad/glad.h': No such file or directory
+  (compiling source file 'src/Shaders/Shader.cpp')
+  
+  Window.cpp
+D:\3DProgramming\3DCompulsory2\3DCompulsory2\src\Shaders\Shader.h(3,10): error C1083: Cannot open include file: 'glad/glad.h': No such file or directory
+  (compiling source file 'src/Window/Window.cpp')
+  

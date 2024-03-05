@@ -4,7 +4,6 @@
 
 int main()
 {
-    Backend backend;
     FrontEnd frontend;
     frontend.initialize();
     return 0;

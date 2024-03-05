@@ -9,10 +9,10 @@ class Camera
 {
 
 public:
-    glm::vec3 cameraPos = glm::vec3 (0.0f, 0.0f, 3.0f);
+    glm::vec3 cameraPos = glm::vec3 (0.0f, 2.5f, 3.0f);
     glm::vec3 cameraFront = glm::vec3 (0.0f, 0.0f,-1.0f);
     glm::vec3 cameraUp = glm::vec3 (0.0f, 1.0f, 0.0f);
-    glm::vec3 PlayerPos = glm::vec3(0.375f, 0.65f, -0.375f);
+    glm::vec3 PlayerPos = glm::vec3(0.375f, 0.0f, -0.375f);
 
     int viewLoc;
     int projectionLoc;

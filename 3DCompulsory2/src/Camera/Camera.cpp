@@ -22,7 +22,7 @@ glm::mat4 Camera::getProjection(float width, float height)
 
 void Camera::setPlayerPos(glm::vec3 position)
 {
-    PlayerPos = glm::vec3(0.375f + position.x, 0.65f + position.y, -0.375f + position.z);
+    PlayerPos = glm::vec3(0.375f + position.x, 0.65f, -0.375f + position.z);
 }
 
 void Camera::updatePos(glm::vec3 newpos)
