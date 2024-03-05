@@ -4,12 +4,11 @@
 class NPC : Mesh
 {
 public:
-    bool bPathCompleted = false;
-
     std::vector<glm::vec3> Points;
-    std::vector<glm::vec3> Path;
 
     int i = 0;
+
+    float cubeMovement = 0.001f;
     
     void initNPC();
 
@@ -17,9 +16,5 @@ public:
     
     float GetZ(glm::vec4 solution, float x);
     
-    void GetPointsInFunction(float step, std::vector<glm::vec3>& vertices, std::vector<glm::vec3> points);
-
     void updatePos(Cube& cube);
-        glm::vec3 getNextPos(float t);
-        void calculatePath();
 };
