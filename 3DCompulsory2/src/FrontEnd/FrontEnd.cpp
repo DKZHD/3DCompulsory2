@@ -36,7 +36,8 @@ void FrontEnd::create()
 	mesh.CreateCube(glm::vec3(9, 2.5, -5), glm::vec3(2, 0.5, 0.1), Color::Brown);
 
 	// Door
-	mesh.CreateCube(glm::vec3(9, 0.5, -5), glm::vec3(2, 2, 0.1), Color::Maroon, false, false,glm::vec3(0.f,1.f,0.f));
+	mesh.CreateCube(glm::vec3(9, 0.5, -5), glm::vec3(2, 2, 0.1), Color::Maroon, false, false,glm::vec3(0.f,1.f,0.f),true);
+	mesh.Package.back()->AddCollider(glm::vec3(1.f));
 
 	//NPC
 	npc.initNPC();
@@ -46,7 +47,12 @@ void FrontEnd::Update(float deltaTime)
 {
 	mesh.Package[0]->Collider->checkCollision(*mesh.Package[1]->Collider);
 	mesh.Package[0]->Collider->checkCollision(*mesh.Package[2]->Collider);
+	mesh.Package[0]->Collider->checkCollision(*mesh.Package.back()->Collider);
 	npc.updatePos(*mesh.Package[4]);
-	mesh.Package.back()->GetRotation().y -= 3.f*deltaTime;
+	if(mesh.Package.back()->bDoorInteracted)
+	{
+		mesh.Package.back()->GetRotation().y -= 10.f*deltaTime;
+	}
+	
 	
 }

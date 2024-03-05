@@ -56,6 +56,10 @@ void KeyBoardInput::processInput(GLFWwindow* window, Cube* player)
 			player->OverlappedCube->bShouldRender = false;
 			player->OverlappedCube->bIsPickup = false;
 		}
+		if(player->bCanInteract == true && player->OverlappedCube->bIsDoor)
+		{
+			player->OverlappedCube->bDoorInteracted = true;
+		}
 	}
 	if(glfwGetKey(window,GLFW_KEY_L)==GLFW_PRESS)
 	{
@@ -99,7 +103,7 @@ void MouseInput::mouse_callback(GLFWwindow* window, double xpos, double ypos)
 			pitch = -89.0f;
 		glm::vec3 direction;
 		direction.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
-		direction.y = -sin(glm::radians(pitch));
+		direction.y = sin(glm::radians(pitch));
 		direction.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
 		Backend::camera.OrbitCamera(direction);
 	}

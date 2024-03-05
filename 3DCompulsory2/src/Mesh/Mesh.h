@@ -28,7 +28,7 @@ public:
 	std::vector<std::shared_ptr<Cube>> Package;
 
 	void Draw();
-	void CreateCube(glm::vec3 position, glm::vec3 scale, glm::vec3 color, bool isPickup = false, bool isPlayer = false, glm::vec3 rotation = glm::vec3(0.f));
+	void CreateCube(glm::vec3 position, glm::vec3 scale, glm::vec3 color, bool isPickup = false, bool isPlayer = false, glm::vec3 rotation = glm::vec3(0.f), bool isDoor = false);
 };
 
 class Cube{
@@ -45,6 +45,8 @@ public:
 	bool bCanInteract = false;
 	bool bIsPickup = false;
 	bool bShouldRender = true;
+	bool bIsDoor = false;
+	bool bDoorInteracted = false;
 
 	Cube* OverlappedCube = nullptr;
 

@@ -3,13 +3,14 @@
 #include "glm/gtc/type_ptr.hpp"
 #include "glm/gtx/transform.hpp"
 
-void Mesh::CreateCube(glm::vec3 position, glm::vec3 scale, glm::vec3 color, bool isPickup, bool isPlayer, glm::vec3 rotation)
+void Mesh::CreateCube(glm::vec3 position, glm::vec3 scale, glm::vec3 color, bool isPickup, bool isPlayer, glm::vec3 rotation, bool isDoor)
 {
 
 	Package.emplace_back(std::make_shared<Cube>(position, scale, rotation));
 	Package.back()->GetIndex() = static_cast<int>(Package.size() - 1);
 	Package.back()->bIsPlayer = isPlayer;
 	Package.back()->bIsPickup = isPickup;
+	Package.back()->bIsDoor = isDoor;
 
 	Vertex v0{0.f, 0.f, 0.f, color}; /* Front-Bot-left */
 	Vertex v1{1.f, 0.f, 0.f, color}; /* Front-Bot-right */
@@ -100,11 +101,15 @@ void Mesh::Draw()
 				cube->Collider->UpdatePosition(cube->GetPosition());
 			glm::mat4 model(1.f);
 			model = glm::translate(model, cube->GetPosition());
-			model = glm::rotate(model, glm::radians(cube->GetRotation().x), glm::vec3(1.f, 0.f, 0.f));
-			model = glm::rotate(model, glm::radians(cube->GetRotation().y), glm::vec3(0.f, 1.f, 0.f));
-			model = glm::rotate(model, glm::radians(cube->GetRotation().z), glm::vec3(0.f, 0.f, 1.f));
+			if(cube->bDoorInteracted)
+			{
+				if(cube->GetRotation().y < -90.f)
+					cube->GetRotation().y = -90.f;
+				model = glm::rotate(model, glm::radians(cube->GetRotation().x), glm::vec3(1.f, 0.f, 0.f));
+				model = glm::rotate(model, glm::radians(cube->GetRotation().y), glm::vec3(0.f, 1.f, 0.f));
+				model = glm::rotate(model, glm::radians(cube->GetRotation().z), glm::vec3(0.f, 0.f, 1.f));
+			}
 			model = glm::scale(model, cube->GetScale());
-			
 			glUniformMatrix4fv(glGetUniformLocation(Shader::Program, "modelMatrix"), 1, GL_FALSE, glm::value_ptr(model));
 			glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, (void*)(cube->GetIndex() * 36 * sizeof(unsigned int)));
 		}
