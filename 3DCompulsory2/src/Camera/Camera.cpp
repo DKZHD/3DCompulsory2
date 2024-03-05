@@ -13,7 +13,6 @@ void Camera::initCamera()
 glm::mat4 Camera::getView()
 {
     glm::mat4 view = glm::mat4(1.f);
-    //cameraPos = glm::vec3(PlayerPos.x, cameraPos.y, PlayerPos.z+3.f);
     view = glm::lookAt(cameraPos, cameraPos+cameraFront, cameraUp);
     return view;
 }
@@ -27,16 +26,14 @@ glm::mat4 Camera::getProjection(float width, float height)
 
 void Camera::setPlayerPos(glm::vec3 position)
 {
-    PlayerPos = glm::vec3(PlayerPos.x + position.x, 0.65f, PlayerPos.z + position.z);
+    PlayerPos = glm::vec3(position.x + 0.375f, position.y + 0.65f, position.z - 0.375f);
 }
 
 glm::vec3 Camera::OrbitCamera(glm::vec3 direction)
 {
-    cameraPos.x = PlayerPos.x;
-    cameraPos.z = PlayerPos.z;
+    cameraPos = PlayerPos;
     cameraFront = glm::normalize(direction);
-    cameraPos = PlayerPos - cameraFront.x * 3.f;
-    cameraPos.y = 2.f;
+    cameraPos = glm::vec3(PlayerPos.x,PlayerPos.y,PlayerPos.z) + cameraFront * -3.f;
     return cameraPos;
 }
 

@@ -20,40 +20,38 @@ class Cube;
 
 class Mesh
 {
-	int count;
+	int count = 0;
 
 public:
 	std::vector<Vertex> mVertices;
 	std::vector<GLuint> mIndices;
 	std::vector<std::shared_ptr<Cube>> Package;
-	
 
 	void Draw();
-	void CreateCube(glm::vec3 position, glm::vec3 scale, glm::vec3 color, bool isPickup = false ,bool isPlayer = false);
+	void CreateCube(glm::vec3 position, glm::vec3 scale, glm::vec3 color, bool isPickup = false, bool isPlayer = false, glm::vec3 rotation = glm::vec3(0.f));
 };
 
-class Cube : Mesh
-{
+class Cube{
 	int index = 0;
 	glm::vec3 Position;
 	glm::vec3 Scale;
+	glm::vec3 Rotation;
 
 public:
-	Cube(glm::vec3 position, glm::vec3 scale)
-		: Position(position), Scale(scale)
-	{
-		
-	}
+	Cube(glm::vec3 position, glm::vec3 scale, glm::vec3 rotation)
+		: Position(position), Scale(scale), Rotation(rotation)
+	{}
 	bool bIsPlayer = false;
 	bool bCanInteract = false;
 	bool bIsPickup = false;
 	bool bShouldRender = true;
 
-	Cube* OverlappedCube;
+	Cube* OverlappedCube = nullptr;
 
 	std::unique_ptr<Collision> Collider;
 	glm::vec3& GetPosition() { return Position; }
 	glm::vec3& GetScale() { return Scale; }
+	glm::vec3& GetRotation() { return Rotation; }
 	int& GetIndex() { return index; }
 	void AddCollider(glm::vec3 scale);
 	virtual ~Cube();

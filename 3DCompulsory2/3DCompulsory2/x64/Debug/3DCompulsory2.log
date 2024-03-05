@@ -1,2 +1,11 @@
-﻿  Camera.cpp
+﻿  Backend.cpp
+  Buffer.cpp
+  Collision.cpp
+  FrontEnd.cpp
+  Scene.cpp
+  Input.cpp
+  Mesh.cpp
+  NPC.cpp
+  main.cpp
+  Generating Code...
   3DCompulsory2.vcxproj -> D:\3DProgramming\3DCompulsory2\3DCompulsory2\x64\Debug\3DCompulsory2.exe

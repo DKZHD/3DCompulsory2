@@ -3,10 +3,10 @@
 #include "glm/gtc/type_ptr.hpp"
 #include "glm/gtx/transform.hpp"
 
-void Mesh::CreateCube(glm::vec3 position, glm::vec3 scale, glm::vec3 color, bool isPickup, bool isPlayer)
+void Mesh::CreateCube(glm::vec3 position, glm::vec3 scale, glm::vec3 color, bool isPickup, bool isPlayer, glm::vec3 rotation)
 {
 
-	Package.emplace_back(std::make_shared<Cube>(position, scale));
+	Package.emplace_back(std::make_shared<Cube>(position, scale, rotation));
 	Package.back()->GetIndex() = static_cast<int>(Package.size() - 1);
 	Package.back()->bIsPlayer = isPlayer;
 	Package.back()->bIsPickup = isPickup;
@@ -100,7 +100,11 @@ void Mesh::Draw()
 				cube->Collider->UpdatePosition(cube->GetPosition());
 			glm::mat4 model(1.f);
 			model = glm::translate(model, cube->GetPosition());
+			model = glm::rotate(model, glm::radians(cube->GetRotation().x), glm::vec3(1.f, 0.f, 0.f));
+			model = glm::rotate(model, glm::radians(cube->GetRotation().y), glm::vec3(0.f, 1.f, 0.f));
+			model = glm::rotate(model, glm::radians(cube->GetRotation().z), glm::vec3(0.f, 0.f, 1.f));
 			model = glm::scale(model, cube->GetScale());
+			
 			glUniformMatrix4fv(glGetUniformLocation(Shader::Program, "modelMatrix"), 1, GL_FALSE, glm::value_ptr(model));
 			glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, (void*)(cube->GetIndex() * 36 * sizeof(unsigned int)));
 		}

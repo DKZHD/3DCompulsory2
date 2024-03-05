@@ -22,37 +22,31 @@ void KeyBoardInput::processInput(GLFWwindow* window, Cube* player)
     }
 	if(glfwGetKey(window, GLFW_KEY_W)==GLFW_PRESS)
 	{
-		Backend::camera.cameraPos.x += 5.f * Backend::camera.cameraFront.x * Backend::DeltaTime;
-		Backend::camera.cameraPos.z += 5.f * Backend::camera.cameraFront.z * Backend::DeltaTime;
-		player->GetPosition() += 5.f * Backend::camera.cameraFront * Backend::DeltaTime;
+		Backend::camera.cameraPos.x += 3.f * Backend::camera.cameraFront.x * Backend::DeltaTime;
+		Backend::camera.cameraPos.z += 3.f * Backend::camera.cameraFront.z * Backend::DeltaTime;
+		player->GetPosition().x += 3.f * Backend::camera.cameraFront.x * Backend::DeltaTime;
+		player->GetPosition().z += 3.f * Backend::camera.cameraFront.z * Backend::DeltaTime;
 		Backend::camera.setPlayerPos(player->GetPosition());
 	}
 	if(glfwGetKey(window, GLFW_KEY_S)==GLFW_PRESS)
 	{
-		Backend::camera.cameraPos.x -= 5.f * Backend::camera.cameraFront.x * Backend::DeltaTime;
-		Backend::camera.cameraPos.z -= 5.f * Backend::camera.cameraFront.z * Backend::DeltaTime;
-		player->GetPosition() -= 5.f * Backend::camera.cameraFront * Backend::DeltaTime;
+		Backend::camera.cameraPos.x -= 3.f * Backend::camera.cameraFront.x * Backend::DeltaTime;
+		Backend::camera.cameraPos.z -= 3.f * Backend::camera.cameraFront.z * Backend::DeltaTime;
+		player->GetPosition().x -= 3.f * Backend::camera.cameraFront.x * Backend::DeltaTime;
+		player->GetPosition().z -= 3.f * Backend::camera.cameraFront.z * Backend::DeltaTime;
 		Backend::camera.setPlayerPos(player->GetPosition());
 	}
 	if(glfwGetKey(window, GLFW_KEY_A)==GLFW_PRESS)
 	{
-		Backend::camera.cameraPos -= (5.f * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
-		player->GetPosition() -= (5.f * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
+		Backend::camera.cameraPos -= (3.f * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
+		player->GetPosition() -= (3.f * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
 		Backend::camera.setPlayerPos(player->GetPosition());
 	}
 	if(glfwGetKey(window, GLFW_KEY_D)==GLFW_PRESS)
 	{
-		Backend::camera.cameraPos += (5.f * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
-		player->GetPosition() += (5.f * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
+		Backend::camera.cameraPos += (3.f * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
+		player->GetPosition() += (3.f * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
 		Backend::camera.setPlayerPos(player->GetPosition());
-	}
-	if(glfwGetKey(window, GLFW_KEY_SPACE)==GLFW_PRESS)
-	{
-		Backend::camera.cameraPos.y += 5.f * Backend::DeltaTime;
-	}
-	if(glfwGetKey(window, GLFW_KEY_LEFT_SHIFT)==GLFW_PRESS)
-	{
-		Backend::camera.cameraPos.y -= 5.f * Backend::DeltaTime;
 	}
 	if(glfwGetKey(window,GLFW_KEY_E)==GLFW_PRESS)
 	{
@@ -104,9 +98,8 @@ void MouseInput::mouse_callback(GLFWwindow* window, double xpos, double ypos)
 		if (pitch < -89.0f)
 			pitch = -89.0f;
 		glm::vec3 direction;
-		Backend::camera.cameraFront;
 		direction.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
-		direction.y = 0; /*sin(glm::radians(pitch));*/
+		direction.y = -sin(glm::radians(pitch));
 		direction.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
 		Backend::camera.OrbitCamera(direction);
 	}
