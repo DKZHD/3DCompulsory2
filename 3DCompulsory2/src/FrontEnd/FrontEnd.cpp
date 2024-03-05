@@ -1,7 +1,11 @@
 #include "FrontEnd.h"
+#include <iostream>
 #include "../Color.h"
 #include "../NPC/NPC.h"
 NPC npc;
+
+Collision collision(glm::vec3(9, 0.5, -6), glm::vec3(2, 2, 1.f), nullptr);
+float timer = 0.f;
 
 void FrontEnd::create()
 {
@@ -48,10 +52,18 @@ void FrontEnd::Update(float deltaTime)
 	mesh.Package[0]->Collider->checkCollision(*mesh.Package[1]->Collider);
 	mesh.Package[0]->Collider->checkCollision(*mesh.Package[2]->Collider);
 	mesh.Package[0]->Collider->checkCollision(*mesh.Package.back()->Collider);
+	collision.checkCollision(*mesh.Package[0]->Collider);
+	std::cout << collision.min.z << "  " << collision.max.z << std::endl;
 	npc.updatePos(*mesh.Package[4]);
 	if(mesh.Package.back()->bDoorInteracted)
 	{
-		mesh.Package.back()->GetRotation().y -= 10.f*deltaTime;
+		mesh.Package.back()->GetRotation().y -= 40.f*deltaTime;
+	}
+	std::cout << "Camera Position: " << Backend::camera.cameraPos.x << " " << Backend::camera.cameraPos.y << " " << Backend::camera.cameraPos.z << std::endl;
+	if(collision.bIsCameraLock)
+	{
+		Backend::camera.cameraPos = glm::vec3(14.8f, 2.5f, -5.2f);
+		// collision.lerp(collision.originalCameraPos, glm::vec3(14.8f, 2.5f, -5.2f), timer+=deltaTime);
 	}
 	
 	

@@ -14,10 +14,15 @@ public:
     glm::vec3 max;
     glm::vec3 scale;
 
+    glm::vec3 originalCameraPos;
+
+    bool bIsCameraLock = false;
+
     Cube* cube;
     
     Collision(glm::vec3 position, glm::vec3 scale, Cube* realCube);
     void UpdatePosition(glm::vec3 position);
     void checkWorldCollision();
     bool checkCollision(Collision& other);
+    glm::vec3 lerp(glm::vec3 a, glm::vec3 b, float f);
 };
