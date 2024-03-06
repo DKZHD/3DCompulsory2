@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "../Backend/Backend.h"
+#include "../Backend/Backend.h"
 #include "../Camera/Camera.h"
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
@@ -64,15 +65,25 @@ void KeyBoardInput::processInput(GLFWwindow* window, Cube* player)
 	{
 		if(player->OverlappedCube)
 		{
-			if(player->bCanInteract == true && player->OverlappedCube->bIsPickup)
+			if(player->bCanInteract)
 			{
-				std::cout << "interacted\n";
-				player->OverlappedCube->bShouldRender = false;
-				player->OverlappedCube->bIsPickup = false;
-			}
-			if(player->bCanInteract == true && player->OverlappedCube->bIsDoor)
-			{
-				player->OverlappedCube->bDoorInteracted = true;
+				switch (player->OverlappedCube->Collider->collisionType)
+				{
+				default:
+					break;
+				case ECollisionType::Pickup:
+					std::cout << "interacted\n";
+					player->OverlappedCube->bShouldRender = false;
+					player->OverlappedCube->Collider->collisionType= ECollisionType::NoCollision;
+					player->bCanInteract = false;
+					break;
+				case ECollisionType::Door:
+					player->OverlappedCube->bDoorInteracted = true;
+					player->bCanInteract = false;
+					break;
+				case ECollisionType::NoCollision:
+					break;
+				}
 			}
 		}
 	}

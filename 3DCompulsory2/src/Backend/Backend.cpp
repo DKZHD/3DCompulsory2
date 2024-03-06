@@ -41,11 +41,11 @@ void Backend::run()
         glClearColor(color.x, color.y, color.z, 1.f);
     	glClear(GL_COLOR_BUFFER_BIT    | GL_DEPTH_BUFFER_BIT);
 		glUseProgram(Shader::Program);
+        KeyBoardInput::processInput(window, mesh.Package[0].get());
+        Update(DeltaTime);
         glUniformMatrix4fv(camera.projectionLoc, 1, GL_FALSE, glm::value_ptr(camera.getProjection(Window::width, Window::height)));
         glUniformMatrix4fv(camera.viewLoc, 1, GL_FALSE, glm::value_ptr(camera.getView()));
 
-        Update(DeltaTime);
-        KeyBoardInput::processInput(window, mesh.Package[0].get());
         VAO.Bind();
         mesh.Draw();
         glfwSwapBuffers(window);

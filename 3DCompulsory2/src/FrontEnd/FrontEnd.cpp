@@ -4,27 +4,27 @@
 #include "../NPC/NPC.h"
 NPC npc;
 
-Collision collision(glm::vec3(9, 0.5, -6), glm::vec3(2, 2, 1.f), nullptr);
+Collision collision(glm::vec3(9, 0.5, -6), glm::vec3(2, 2, 1.f));
 float timer = 0.f;
 
 void FrontEnd::create()
 {
 	// Player
 	mesh.CreateCube(glm::vec3(0, 0.5, 0.f), glm::vec3(0.75f, 1.3f, 0.75f),Color::Pink, false, true);
-	mesh.Package[0]->AddCollider(glm::vec3(0.75, 1.3, 1.2));
+	mesh.Package[0]->AddCollider(glm::vec3(0.75, 1.3, 1.2), ECollisionType::Player);
 
-	// Random
+	// Pickups
 	mesh.CreateCube(glm::vec3(0.f, 1.f, -10.f), glm::vec3(1.f), Color::Magenta, true);
-	mesh.Package.back()->AddCollider(glm::vec3(1.f));
+	mesh.Package.back()->AddCollider(glm::vec3(1.f),ECollisionType::Pickup);
 
 	mesh.CreateCube(glm::vec3(10.f, 1.f, -10.f), glm::vec3(1.f), Color::Yellow, true);
-	mesh.Package.back()->AddCollider(glm::vec3(1.f));
+	mesh.Package.back()->AddCollider(glm::vec3(1.f),ECollisionType::Pickup);
 
 	mesh.CreateCube(glm::vec3(0.f), glm::vec3(20,0.5,20), Color::Blue);
-	mesh.Package.back()->AddCollider(glm::vec3(20, 5.f, 20));
+	mesh.Package.back()->AddCollider(glm::vec3(20, 5.f, 20), ECollisionType::Wall);
 
 	mesh.CreateCube(glm::vec3(10.f, 10.f, -10.f), glm::vec3(1.f), Color::Pink);
-	mesh.Package.back()->AddCollider(glm::vec3(1.f));
+	mesh.Package.back()->AddCollider(glm::vec3(1.f),ECollisionType::NPC);
 
 	// House - Walls
 	mesh.CreateCube(glm::vec3(15, 0.5, -5), glm::vec3(0.1, 2.5, 10), Color::Brown);
@@ -41,7 +41,7 @@ void FrontEnd::create()
 
 	// Door
 	mesh.CreateCube(glm::vec3(9, 0.5, -5), glm::vec3(2, 2, 0.1), Color::Maroon, false, false,glm::vec3(0.f,1.f,0.f),true);
-	mesh.Package.back()->AddCollider(glm::vec3(1.f));
+	mesh.Package.back()->AddCollider(glm::vec3(2.f,2.f,0.5f), ECollisionType::Door,glm::vec3(0.f,0.f,0.5f));
 
 	//NPC
 	npc.initNPC();
@@ -53,17 +53,11 @@ void FrontEnd::Update(float deltaTime)
 	mesh.Package[0]->Collider->checkCollision(*mesh.Package[2]->Collider);
 	mesh.Package[0]->Collider->checkCollision(*mesh.Package.back()->Collider);
 	collision.checkCollision(*mesh.Package[0]->Collider);
-	std::cout << collision.min.z << "  " << collision.max.z << std::endl;
+
 	npc.updatePos(*mesh.Package[4]);
 	if(mesh.Package.back()->bDoorInteracted)
 	{
 		mesh.Package.back()->GetRotation().y -= 40.f*deltaTime;
-	}
-	std::cout << "Camera Position: " << Backend::camera.cameraPos.x << " " << Backend::camera.cameraPos.y << " " << Backend::camera.cameraPos.z << std::endl;
-	if(collision.bIsCameraLock)
-	{
-		Backend::camera.cameraPos = glm::vec3(14.8f, 2.5f, -5.2f);
-		// collision.lerp(collision.originalCameraPos, glm::vec3(14.8f, 2.5f, -5.2f), timer+=deltaTime);
 	}
 	
 	

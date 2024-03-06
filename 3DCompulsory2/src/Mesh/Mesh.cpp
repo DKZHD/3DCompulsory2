@@ -82,9 +82,9 @@ void Mesh::CreateCube(glm::vec3 position, glm::vec3 scale, glm::vec3 color, bool
 
 }
 
-void Cube::AddCollider(glm::vec3 scale)
+void Cube::AddCollider(glm::vec3 scale, ECollisionType collisionType, glm::vec3 offset)
 {
-	Collider = std::make_unique<Collision>(GetPosition(),scale,this);
+	Collider = std::make_unique<Collision>(GetPosition()+offset,scale, offset,collisionType,this);
 }
 
 Cube::~Cube()
@@ -98,7 +98,7 @@ void Mesh::Draw()
 		if(cube->bShouldRender)
 		{
 			if (cube->Collider)
-				cube->Collider->UpdatePosition(cube->GetPosition());
+				cube->Collider->UpdatePosition(cube->GetPosition()+cube->Collider->offset);
 			glm::mat4 model(1.f);
 			model = glm::translate(model, cube->GetPosition());
 			if(cube->bDoorInteracted)

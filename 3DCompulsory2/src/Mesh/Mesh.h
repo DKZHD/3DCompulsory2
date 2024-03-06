@@ -55,7 +55,7 @@ public:
 	glm::vec3& GetScale() { return Scale; }
 	glm::vec3& GetRotation() { return Rotation; }
 	int& GetIndex() { return index; }
-	void AddCollider(glm::vec3 scale);
+	void AddCollider(glm::vec3 scale,ECollisionType collisionType, glm::vec3 offset = glm::vec3(0.f));
 	virtual ~Cube();
 };
 

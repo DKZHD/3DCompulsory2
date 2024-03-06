@@ -2,11 +2,12 @@
 #include "../Backend/Backend.h"
 #include <iostream>
 #include "../Mesh/Mesh.h"
+#include "glm/ext/scalar_common.hpp"
 #include "glm/gtx/dual_quaternion.hpp"
 #include "glm/gtx/matrix_interpolation.hpp"
 #include "glm/gtx/quaternion.hpp"
 
-Collision::Collision(glm::vec3 position, glm::vec3 scale, Cube* realCube) : scale(scale)
+Collision::Collision(glm::vec3 position, glm::vec3 scale, glm::vec3 offset, ECollisionType collision_type, Cube* realCube) : scale(scale), offset(offset), collisionType(collision_type)
 {
     min = position;
     max = position + scale;
@@ -45,22 +46,24 @@ bool Collision::checkCollision(Collision& other)
                  cube->bCanInteract = true;
                  if(other.cube)
                     cube->OverlappedCube = other.cube;
-                 std::cout << "Cube is player\n";
              }
         }
         else
         {
-            originalCameraPos = Backend::camera.cameraPos;
-            if(bIsCameraLock)
+            if (HasOverlapped == true)
             {
-                bIsCameraLock = false;
-                Backend::camera.CameraLock = false;
+                timer += Backend::DeltaTime*0.5f;
+                timer = glm::clamp(timer, 0.f, 1.01f);
+                lerp(Backend::camera.cameraPos, glm::vec3(14.8, 2.5, -5.2), timer);
             }
-            
-            Backend::camera.cameraFront = glm::vec3(-1.f, -0.1f, -1.f);
-            Backend::camera.CameraLock = true;
-            bIsCameraLock = true;
-           
+            else
+            {
+                HasOverlapped = true;
+                timer = 0.f;
+                Backend::camera.cameraFront = glm::vec3(-1.f, -0.2f, -1.f);
+                Backend::camera.CameraLock = true;
+                bIsCameraLock = true;
+            }
         }
        if (other.cube != nullptr)
        {
@@ -69,31 +72,25 @@ bool Collision::checkCollision(Collision& other)
                other.cube->bCanInteract = true;
                if(cube)
                 other.cube->OverlappedCube = cube;
-               std::cout << "Other is player\n";
            }
        }
         else
         {
-            std::cout << "Other is not player\n";
+
         }
          return true;
     }
+
     return false;
 }
 
 glm::vec3 Collision::lerp(glm::vec3 a, glm::vec3 b, float f)
 {
-    // Backend::camera.cameraPos = glm::eulerAngles(glm::lerp(glm::toQuat(glm::translate(glm::mat4(1.f),
-    //  a)),glm::toQuat(glm::translate(glm::mat4(1.f),b)), f));
-    // glm::mat4 shit = glm::interpolate(glm::translate(glm::mat4(1.f), a), glm::translate(glm::mat4(1.f), b), 1.f);
-    // glm::vec4 shit2 = glm::vec4(1.f);
-    // glm::vec4 shit3 = shit*shit2;
-    // std::cout << shit3.x << " " << shit3.y << "  "<< shit3.z << "  "<<  shit3.w << std::endl;
-    // Backend::camera.cameraPos = glm::vec3(shit3.x,shit3.y,shit3.z);
-    auto shit = [f,a,b](glm::vec3 lerpLocation)
+    if (f >= 1.f)
     {
-        Backend::camera.cameraPos = (1.f-f)*a+f*b;
-    };
-    
+        return Backend::camera.cameraPos;
+    }
+
+    Backend::camera.cameraPos = glm::mix(Backend::camera.cameraPos, glm::vec3(14.8f, 2.5f, -5.2f), f);
     return Backend::camera.cameraPos;
 }
