@@ -63,6 +63,14 @@ void FrontEnd::create()
 	mesh.CreateCube(glm::vec3(9, 0.5, -5), glm::vec3(2, 2, 0.1), Color::Maroon, false, false,glm::vec3(0.f,1.f,0.f),true);
 	mesh.Package.back()->AddCollider(glm::vec3(2.f,2.f,0.5f), ECollisionType::Door,glm::vec3(0.f,0.f,0.5f));
 
+	//Items in the house
+	mesh.CreateCube(glm::vec3(9,0.5,-10), glm::vec3(0.5,0.5,0.5), Color::Red);
+	mesh.Package.back()->bShouldRender = false;
+	mesh.CreateCube(glm::vec3(7,0.5,-8), glm::vec3(0.5,0.5,0.5), Color::Blue);
+	mesh.Package.back()->bShouldRender = false;
+	mesh.CreateCube(glm::vec3(11,0.5,-12), glm::vec3(0.5,0.5,0.5), Color::White);
+	mesh.Package.back()->bShouldRender = false;
+
 	//NPC
 	npc.initNPC();
 }
@@ -78,8 +86,15 @@ void FrontEnd::Update(float deltaTime)
 	mesh.Package[0]->Collider->checkCollision(*mesh.Package[7]->Collider);
 	mesh.Package[0]->Collider->checkCollision(*mesh.Package[8]->Collider);
 
-	mesh.Package[0]->Collider->checkCollision(*mesh.Package.back()->Collider);
-	collision.checkCollision(*mesh.Package[0]->Collider);
+	mesh.Package[0]->Collider->checkCollision(*mesh.Package[18]->Collider);
+
+	if(collision.checkCollision(*mesh.Package[0]->Collider))
+	{
+		for(int i = 19; i < 22; i++)
+		{
+			mesh.Package[i]->bShouldRender = true;
+		}
+	}
 
 	npc.updatePos(*mesh.Package[10]);
 	if(mesh.Package.back()->bDoorInteracted)
