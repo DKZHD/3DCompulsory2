@@ -39,8 +39,8 @@ void FrontEnd::create()
 	mesh.Package.back()->AddCollider(glm::vec3(1.f),ECollisionType::Pickup);
 
 	// Floor
-	mesh.CreateCube(glm::vec3(0.f), glm::vec3(20,0.5,20), Color::Olive);
-	mesh.Package.back()->AddCollider(glm::vec3(20, 5.f, 20), ECollisionType::Wall);
+	mesh.CreateCube(glm::vec3(-20.f,0.f,20.f), glm::vec3(40.f,0.5,40.f), Color::Olive);
+	mesh.Package.back()->AddCollider(glm::vec3(40.f, 5.f, 40.f), ECollisionType::Wall);
 
 	// NPC
 	mesh.CreateCube(glm::vec3(10.f, 10.f, -10.f), glm::vec3(1.f), Color::Pink);
@@ -97,9 +97,9 @@ void FrontEnd::Update(float deltaTime)
 	}
 
 	npc.updatePos(*mesh.Package[10]);
-	if(mesh.Package.back()->bDoorInteracted)
+	if(mesh.Package[18]->bDoorInteracted)
 	{
-		mesh.Package.back()->GetRotation().y -= 40.f*deltaTime;
+		mesh.Package[18]->GetRotation().y -= 40.f * deltaTime;
 	}
 	
 	
