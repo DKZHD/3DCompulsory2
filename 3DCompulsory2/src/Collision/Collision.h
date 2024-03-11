@@ -31,9 +31,13 @@ public:
     Cube* cube;
     
     Collision(glm::vec3 position, glm::vec3 scale, glm::vec3 offset = glm::vec3(0.f),ECollisionType collision_type = ECollisionType::Collider, Cube* realCube = nullptr);
+
+    // Update collision position
     void UpdatePosition(glm::vec3 position);
     static void checkWorldCollision();
     static void CheckPickupCollisions();
+
+    // Checks collision between this collider and another
     bool checkCollision(Collision& other);
     glm::vec3 lerp(glm::vec3& a, glm::vec3 b, float f);
 

@@ -26,8 +26,9 @@ public:
 	std::vector<Vertex> mVertices;
 	std::vector<GLuint> mIndices;
 	std::vector<std::shared_ptr<Cube>> Package;
-
+	// Draws all meshes
 	void Draw();
+	// Creates a cube
 	void CreateCube(glm::vec3 position, glm::vec3 scale, glm::vec3 color, bool isPickup = false, bool isPlayer = false, glm::vec3 rotation = glm::vec3(0.f), bool isDoor = false);
 };
 
@@ -51,10 +52,16 @@ public:
 	Cube* OverlappedCube = nullptr;
 
 	std::shared_ptr<Collision> Collider;
+	// Returns a reference, Can be adjusted
 	glm::vec3& GetPosition() { return Position; }
+	// Returns a reference, Can be adjusted
 	glm::vec3& GetScale() { return Scale; }
+	// Returns a reference, Can be adjusted
 	glm::vec3& GetRotation() { return Rotation; }
+	// Returns a reference, Do not use
 	int& GetIndex() { return index; }
+
+	// Add collider with a optional offset
 	void AddCollider(glm::vec3 scale,ECollisionType collisionType, glm::vec3 offset = glm::vec3(0.f));
 	virtual ~Cube();
 };

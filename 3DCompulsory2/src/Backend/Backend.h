@@ -16,10 +16,14 @@ public:
     Mesh mesh;
 
     Backend() = default;
-    
+
+    // Initialize all default functions, called at program start
     virtual void initialize();
+    // Create objects
     virtual void create();
+    // Main Loop
     virtual void run();
+    // Change variables before draw call
     virtual void Update(float deltaTime);
 
     virtual ~Backend();

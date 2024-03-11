@@ -24,10 +24,14 @@ public:
 
     glm::mat4 view;
     glm::mat4 projection;
-    
+
+    // Get camera view
     glm::mat4 getView();
+    // Get camera projection
     glm::mat4 getProjection(float width, float height);
+    // Sets player position
     void setPlayerPos(glm::vec3 position);
+    // Offsets camera a set distance around the center of the player
     glm::vec3 OrbitCamera(glm::vec3 direction);
 
     void updatePos(glm::vec3 newpos);
