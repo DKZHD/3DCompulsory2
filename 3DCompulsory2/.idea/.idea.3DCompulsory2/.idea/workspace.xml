@@ -9,7 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="93667e7c-750b-4bc0-8cdb-a0d26d7126fa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.3DCompulsory2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.3DCompulsory2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontEnd/FrontEnd.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontEnd/FrontEnd.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/x64/Debug/3DCompulsory2.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Debug/3DCompulsory2.ilk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/x64/Debug/3DCompulsory2.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Debug/3DCompulsory2.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/x64/Debug/3DCompulsory2.tlog/CL.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/x64/Debug/3DCompulsory2.tlog/CL.command.1.tlog" afterDir="false" />
@@ -135,6 +134,7 @@
       <workItem from="1709646061513" duration="2581000" />
       <workItem from="1709649084075" duration="8035000" />
       <workItem from="1710158796804" duration="1694000" />
+      <workItem from="1710160630721" duration="50000" />
     </task>
     <servers />
   </component>
