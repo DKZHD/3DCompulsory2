@@ -50,7 +50,7 @@ public:
 
 	Cube* OverlappedCube = nullptr;
 
-	std::unique_ptr<Collision> Collider;
+	std::shared_ptr<Collision> Collider;
 	glm::vec3& GetPosition() { return Position; }
 	glm::vec3& GetScale() { return Scale; }
 	glm::vec3& GetRotation() { return Rotation; }

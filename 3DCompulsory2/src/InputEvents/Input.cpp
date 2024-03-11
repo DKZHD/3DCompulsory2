@@ -25,40 +25,40 @@ void KeyBoardInput::processInput(GLFWwindow* window, Cube* player)
 	{
 		if(!Backend::camera.CameraLock)
 		{
-			Backend::camera.cameraPos.x += 3.f * Backend::camera.cameraFront.x * Backend::DeltaTime;
-			Backend::camera.cameraPos.z += 3.f * Backend::camera.cameraFront.z * Backend::DeltaTime;
+			Backend::camera.cameraPos.x += Backend::camera.cameraSpeed * Backend::camera.cameraFront.x * Backend::DeltaTime;
+			Backend::camera.cameraPos.z += Backend::camera.cameraSpeed * Backend::camera.cameraFront.z * Backend::DeltaTime;
 		}
-		player->GetPosition().x += 3.f * Backend::camera.cameraFront.x * Backend::DeltaTime;
-		player->GetPosition().z += 3.f * Backend::camera.cameraFront.z * Backend::DeltaTime;
+		player->GetPosition().x += Backend::camera.cameraSpeed * Backend::camera.cameraFront.x * Backend::DeltaTime;
+		player->GetPosition().z += Backend::camera.cameraSpeed * Backend::camera.cameraFront.z * Backend::DeltaTime;
 		Backend::camera.setPlayerPos(player->GetPosition());
 	}
 	if(glfwGetKey(window, GLFW_KEY_S)==GLFW_PRESS)
 	{
 		if(!Backend::camera.CameraLock)
 		{
-			Backend::camera.cameraPos.x -= 3.f * Backend::camera.cameraFront.x * Backend::DeltaTime;
-			Backend::camera.cameraPos.z -= 3.f * Backend::camera.cameraFront.z * Backend::DeltaTime;
+			Backend::camera.cameraPos.x -= Backend::camera.cameraSpeed * Backend::camera.cameraFront.x * Backend::DeltaTime;
+			Backend::camera.cameraPos.z -= Backend::camera.cameraSpeed * Backend::camera.cameraFront.z * Backend::DeltaTime;
 		}
-		player->GetPosition().x -= 3.f * Backend::camera.cameraFront.x * Backend::DeltaTime;
-		player->GetPosition().z -= 3.f * Backend::camera.cameraFront.z * Backend::DeltaTime;
+		player->GetPosition().x -= Backend::camera.cameraSpeed * Backend::camera.cameraFront.x * Backend::DeltaTime;
+		player->GetPosition().z -= Backend::camera.cameraSpeed * Backend::camera.cameraFront.z * Backend::DeltaTime;
 		Backend::camera.setPlayerPos(player->GetPosition());
 	}
 	if(glfwGetKey(window, GLFW_KEY_A)==GLFW_PRESS)
 	{
 		if(!Backend::camera.CameraLock)
 		{
-			Backend::camera.cameraPos -= (3.f * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
+			Backend::camera.cameraPos -= (Backend::camera.cameraSpeed * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
 		}
-		player->GetPosition() -= (3.f * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
+		player->GetPosition() -= (Backend::camera.cameraSpeed * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
 		Backend::camera.setPlayerPos(player->GetPosition());
 	}
 	if(glfwGetKey(window, GLFW_KEY_D)==GLFW_PRESS)
 	{
 		if(!Backend::camera.CameraLock)
 		{
-			Backend::camera.cameraPos += (3.f * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
+			Backend::camera.cameraPos += (Backend::camera.cameraSpeed * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
 		}
-		player->GetPosition() += (3.f * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
+		player->GetPosition() += (Backend::camera.cameraSpeed * glm::normalize(glm::cross(Backend::camera.cameraFront, Backend::camera.cameraUp))) * Backend::DeltaTime;
 		Backend::camera.setPlayerPos(player->GetPosition());
 	}
 	if(glfwGetKey(window,GLFW_KEY_E)==GLFW_PRESS)

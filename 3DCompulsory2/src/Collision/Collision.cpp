@@ -1,11 +1,12 @@
 #include "Collision.h"
-#include "../Backend/Backend.h"
 #include <iostream>
+#include "../Backend/Backend.h"
 #include "../Mesh/Mesh.h"
 #include "glm/ext/scalar_common.hpp"
 #include "glm/gtx/dual_quaternion.hpp"
-#include "glm/gtx/matrix_interpolation.hpp"
 #include "glm/gtx/quaternion.hpp"
+
+std::vector<std::shared_ptr<Collision>> Collision::AllCollision;
 
 Collision::Collision(glm::vec3 position, glm::vec3 scale, glm::vec3 offset, ECollisionType collision_type, Cube* realCube) : scale(scale), offset(offset), collisionType(collision_type)
 {
@@ -14,6 +15,7 @@ Collision::Collision(glm::vec3 position, glm::vec3 scale, glm::vec3 offset, ECol
     max.z = position.z - scale.z;
  
     cube = realCube;
+    AllCollision.push_back(std::make_shared<Collision>(*this));
 }
 
 void Collision::UpdatePosition(glm::vec3 position)
@@ -26,18 +28,38 @@ void Collision::UpdatePosition(glm::vec3 position)
 
 void Collision::checkWorldCollision()
 {
-    
+}
+
+void Collision::CheckPickupCollisions()
+{
+    for(auto& player : AllCollision)
+    {
+        if(player->cube)
+        {
+            if (player->cube->bIsPlayer)
+            {
+                for (auto& element : AllCollision)
+                {
+                    if (element->collisionType == ECollisionType::Pickup)
+                    {
+                        player->checkCollision(*element);
+                    }
+                }
+                break;
+            }
+        }
+
+    }
 }
 
 bool Collision::checkCollision(Collision& other)
 {
-
     if(other.min.x < max.x && other.max.x > min.x &&
         other.min.y < max.y && other.max.y > min.y &&
         max.z <= other.min.z && min.z >= other.max.z)
     {
         if(cube == nullptr && other.cube == nullptr)
-            return true;
+            return false;
 
         if(cube != nullptr)
         {
@@ -47,22 +69,44 @@ bool Collision::checkCollision(Collision& other)
                  if(other.cube)
                     cube->OverlappedCube = other.cube;
              }
+            if(collisionType == ECollisionType::Wall)
+            {
+	            
+            }
         }
         else
         {
-            if (HasOverlapped == true)
+            if (HasOverlapped == false)
             {
-                timer += Backend::DeltaTime*0.5f;
-                timer = glm::clamp(timer, 0.f, 1.01f);
-                lerp(Backend::camera.cameraPos, glm::vec3(14.8, 2.5, -5.2), timer);
+                if(bIsCameraLock == false)
+                {
+                    HasOverlapped = true;
+                    timer = 0.f;
+                    Backend::camera.cameraFront = glm::vec3(-1.f, -0.2f, -1.f);
+                    Backend::camera.CameraLock = true;
+                    bIsCameraLock = true;
+                    OriginalCameraPosition = Backend::camera.cameraPos;
+                }
+                else
+                {
+                    HasOverlapped = true;
+                    timer = 0.f;
+                    Backend::camera.cameraFront = glm::vec3(0.f,0.f, -1.f);
+                    Backend::camera.CameraLock = false;
+                    bIsCameraLock = false;
+                }
             }
             else
             {
-                HasOverlapped = true;
-                timer = 0.f;
-                Backend::camera.cameraFront = glm::vec3(-1.f, -0.2f, -1.f);
-                Backend::camera.CameraLock = true;
-                bIsCameraLock = true;
+                if(bIsCameraLock == true)
+                {
+                    timer += Backend::DeltaTime * 0.5f;
+                    timer = glm::clamp(timer, 0.f, 1.01f);
+                    lerp(Backend::camera.cameraPos, glm::vec3(14.8, 2.5, -5.2), timer);
+                }
+                else
+                {
+                }
             }
         }
        if (other.cube != nullptr)
@@ -74,23 +118,22 @@ bool Collision::checkCollision(Collision& other)
                 other.cube->OverlappedCube = cube;
            }
        }
-        else
-        {
-
-        }
          return true;
     }
+    if (HasOverlapped == true && bIsCameraLock == false)
+        Backend::camera.OrbitCamera(glm::vec3(0.f, 0.f, -1.f));
+    HasOverlapped = false;
 
     return false;
 }
 
-glm::vec3 Collision::lerp(glm::vec3 a, glm::vec3 b, float f)
+glm::vec3 Collision::lerp(glm::vec3& a, glm::vec3 b, float f)
 {
     if (f >= 1.f)
     {
         return Backend::camera.cameraPos;
     }
 
-    Backend::camera.cameraPos = glm::mix(Backend::camera.cameraPos, glm::vec3(14.8f, 2.5f, -5.2f), f);
+    a = glm::mix(Backend::camera.cameraPos, glm::vec3(14.8f, 2.5f, -5.2f), f);
     return Backend::camera.cameraPos;
 }

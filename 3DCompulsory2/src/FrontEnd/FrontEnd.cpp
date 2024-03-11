@@ -14,15 +14,35 @@ void FrontEnd::create()
 	mesh.Package[0]->AddCollider(glm::vec3(0.75, 1.3, 1.2), ECollisionType::Player);
 
 	// Pickups
-	mesh.CreateCube(glm::vec3(0.f, 1.f, -10.f), glm::vec3(1.f), Color::Magenta, true);
+	mesh.CreateCube(glm::vec3(0.f, 1.f, -10.f), glm::vec3(1.f), Color::Gold, true);
 	mesh.Package.back()->AddCollider(glm::vec3(1.f),ECollisionType::Pickup);
 
-	mesh.CreateCube(glm::vec3(10.f, 1.f, -10.f), glm::vec3(1.f), Color::Yellow, true);
+	mesh.CreateCube(glm::vec3(10.f, 1.f, -10.f), glm::vec3(1.f), Color::Gold, true);
 	mesh.Package.back()->AddCollider(glm::vec3(1.f),ECollisionType::Pickup);
 
-	mesh.CreateCube(glm::vec3(0.f), glm::vec3(20,0.5,20), Color::Blue);
+	mesh.CreateCube(glm::vec3(-5.f, 1.f, -4.f), glm::vec3(1.f), Color::Gold, true);
+	mesh.Package.back()->AddCollider(glm::vec3(1.f),ECollisionType::Pickup);
+
+	mesh.CreateCube(glm::vec3(5.f, 1.f, 0.f), glm::vec3(1.f), Color::Gold, true);
+	mesh.Package.back()->AddCollider(glm::vec3(1.f),ECollisionType::Pickup);
+
+	mesh.CreateCube(glm::vec3(30.f, 1.f, -10.f), glm::vec3(1.f), Color::Gold, true);
+	mesh.Package.back()->AddCollider(glm::vec3(1.f),ECollisionType::Pickup);
+
+	mesh.CreateCube(glm::vec3(25.f, 1.f, -10.f), glm::vec3(1.f), Color::Gold, true);
+	mesh.Package.back()->AddCollider(glm::vec3(1.f),ECollisionType::Pickup);
+
+	mesh.CreateCube(glm::vec3(-12.f, 1.f, -15.f), glm::vec3(1.f), Color::Gold, true);
+	mesh.Package.back()->AddCollider(glm::vec3(1.f),ECollisionType::Pickup);
+
+	mesh.CreateCube(glm::vec3(15.f, 1.f, -7.f), glm::vec3(1.f), Color::Gold, true);
+	mesh.Package.back()->AddCollider(glm::vec3(1.f),ECollisionType::Pickup);
+
+	// Floor
+	mesh.CreateCube(glm::vec3(0.f), glm::vec3(20,0.5,20), Color::Olive);
 	mesh.Package.back()->AddCollider(glm::vec3(20, 5.f, 20), ECollisionType::Wall);
 
+	// NPC
 	mesh.CreateCube(glm::vec3(10.f, 10.f, -10.f), glm::vec3(1.f), Color::Pink);
 	mesh.Package.back()->AddCollider(glm::vec3(1.f),ECollisionType::NPC);
 
@@ -51,10 +71,17 @@ void FrontEnd::Update(float deltaTime)
 {
 	mesh.Package[0]->Collider->checkCollision(*mesh.Package[1]->Collider);
 	mesh.Package[0]->Collider->checkCollision(*mesh.Package[2]->Collider);
+	mesh.Package[0]->Collider->checkCollision(*mesh.Package[3]->Collider);
+	mesh.Package[0]->Collider->checkCollision(*mesh.Package[4]->Collider);
+	mesh.Package[0]->Collider->checkCollision(*mesh.Package[5]->Collider);
+	mesh.Package[0]->Collider->checkCollision(*mesh.Package[6]->Collider);
+	mesh.Package[0]->Collider->checkCollision(*mesh.Package[7]->Collider);
+	mesh.Package[0]->Collider->checkCollision(*mesh.Package[8]->Collider);
+
 	mesh.Package[0]->Collider->checkCollision(*mesh.Package.back()->Collider);
 	collision.checkCollision(*mesh.Package[0]->Collider);
 
-	npc.updatePos(*mesh.Package[4]);
+	npc.updatePos(*mesh.Package[10]);
 	if(mesh.Package.back()->bDoorInteracted)
 	{
 		mesh.Package.back()->GetRotation().y -= 40.f*deltaTime;

@@ -10,6 +10,7 @@ namespace  Color
     constexpr Color3 Cyan(0.0f, 1.0f, 1.0f);
     constexpr Color3 Magenta(1.0f, 0.0f, 1.0f);
     constexpr Color3 Yellow(1.0f, 1.0f, 0.0f);
+    constexpr Color3 Gold(0.812, 0.8, 0.09);
     constexpr Color3 Orange(1.0f, 0.5f, 0.0f);
     constexpr Color3 Purple(0.5f, 0.0f, 0.5f);
     constexpr Color3 Pink(1.0f, 0.6f, 0.8f);
