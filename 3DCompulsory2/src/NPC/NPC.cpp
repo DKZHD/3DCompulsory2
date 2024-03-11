@@ -7,10 +7,10 @@
 
 void NPC::initNPC()
 {
-    Points.emplace_back(glm::vec3(0,0,0));
-    Points.emplace_back(glm::vec3(20,0,12));
-    Points.emplace_back(glm::vec3(30,0,20));
-    Points.emplace_back(glm::vec3(35,0,17));
+    Points.emplace_back(glm::vec3(0,0.5,0));
+    Points.emplace_back(glm::vec3(20,0.5,12));
+    Points.emplace_back(glm::vec3(30,0.5,20));
+    Points.emplace_back(glm::vec3(35,0.5,17));
 }
 
 glm::vec4 NPC::interpolation(std::vector<glm::vec3> points)
@@ -45,7 +45,7 @@ void NPC::updatePos(Cube& cube)
         cubeMovement *= -1;
 
     cube.GetPosition().x += cubeMovement;
-    cube.GetPosition().y = 0;
+    cube.GetPosition().y = 0.5;
     cube.GetPosition().z = GetZ(interpolation(Points), cube.GetPosition().x);
 }
 
